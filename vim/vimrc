@@ -1,0 +1,58 @@
+set nocompatible
+filetype off
+
+"vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'roman/golden-ratio'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
+
+call vundle#end()
+filetype plugin indent on
+
+"leader bindings
+let mapleader = "\<Space>"
+nnoremap <Leader>vs :vs<CR>:bnext<CR>
+nnoremap <Leader>m :make!<CR>
+
+"general
+syntax enable
+set background=dark
+colorscheme solarized
+
+let g:tex_flavor='latex'
+
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent 
+
+set number
+set ruler
+set cursorline
+
+set backspace=indent,eol,start
+
+inoremap jj <esc>
+
+"syntastic
+let g:syntastic_cpp_compiler='clang++'
+let g:syntastic_cpp_compiler_options=' -Wall -Werror -std=c++11 -stdlib=libc++'
+let g:syntastic_haskel_checker='ghc'
+set completeopt=menu,menuone
+
+" youcompleteme
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+"vimnotes
+let g:notes_directories = ['~/notes']
+let g:notes_smart_quotes = 0
+let g:notes_suffix = '.note'
+nnoremap <Enter> :Utl<CR>
