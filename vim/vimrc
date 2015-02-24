@@ -9,9 +9,10 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'roman/golden-ratio'
 Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
+"sh ~/.vim/bundle/YouCompleteMe/install.sh --clang-completer --system-libclang
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
