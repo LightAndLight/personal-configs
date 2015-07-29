@@ -9,8 +9,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'roman/golden-ratio'
 Plugin 'scrooloose/syntastic'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
+Plugin 'jceb/vim-orgmode'
+Plugin 'mattn/emmet-vim'
 "sh ~/.vim/bundle/YouCompleteMe/install.sh --clang-completer --system-libclang
 Plugin 'Valloric/YouCompleteMe'
 
@@ -40,6 +40,8 @@ set cursorline
 
 set backspace=indent,eol,start
 
+set textwidth=79
+
 inoremap jj <esc>
 
 "syntastic
@@ -51,6 +53,8 @@ set completeopt=menu,menuone
 " youcompleteme
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
 
 "vimnotes
 let g:notes_directories = ['~/notes']
