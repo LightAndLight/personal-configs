@@ -12,7 +12,7 @@ Plugin 'roman/golden-ratio'
 Plugin 'scrooloose/syntastic'
 Plugin 'jceb/vim-orgmode'
 Plugin 'mattn/emmet-vim'
-"sh ~/.vim/bundle/YouCompleteMe/install.sh --clang-completer --system-libclang
+"python ~/.vim/bundle/YouCompleteMe/install.py --clang-completer --system-libclang
 Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
