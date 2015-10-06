@@ -1,5 +1,6 @@
 set nocompatible
 filetype off
+syntax on
 
 "vundle
 "clone the vundle repo into .vim/bundle/Vundle.vim then call :PluginInstall
@@ -12,10 +13,12 @@ Plugin 'roman/golden-ratio'
 Plugin 'scrooloose/syntastic'
 Plugin 'jceb/vim-orgmode'
 Plugin 'mattn/emmet-vim'
+Plugin 'idris-hackers/idris-vim'
 "python ~/.vim/bundle/YouCompleteMe/install.py --clang-completer --system-libclang
 Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
+filetype on
 filetype plugin indent on
 
 "leader bindings
