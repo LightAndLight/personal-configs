@@ -18,13 +18,12 @@ Plugin 'idris-hackers/idris-vim'
 Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
-filetype on
 filetype plugin indent on
 
 "leader bindings
 let mapleader = "\<Space>"
 nnoremap <Leader>vs :vs<CR>:bnext<CR>
-nnoremap <Leader>m :make!<CR>
+nnoremap <Leader>b :make!<CR>
 
 "general
 syntax enable
