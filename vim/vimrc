@@ -1,6 +1,5 @@
 set nocompatible
 filetype off
-syntax on
 
 "vundle
 "clone the vundle repo into .vim/bundle/Vundle.vim then call :PluginInstall
@@ -14,6 +13,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'jceb/vim-orgmode'
 Plugin 'mattn/emmet-vim'
 Plugin 'idris-hackers/idris-vim'
+":VimProcInstall
+Plugin 'shougo/vimproc.vim'
+Plugin 'shougo/vimshell.vim'
 "python ~/.vim/bundle/YouCompleteMe/install.py --clang-completer --system-libclang
 Plugin 'Valloric/YouCompleteMe'
 
