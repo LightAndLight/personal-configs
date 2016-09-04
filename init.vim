@@ -7,12 +7,15 @@ set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'YorickPeterse/happy_hacking.vim'
+Plugin 'lightandlight/gruvbox'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'roman/golden-ratio'
 Plugin 'scrooloose/syntastic'
 Plugin 'jceb/vim-orgmode'
 Plugin 'mattn/emmet-vim'
 Plugin 'idris-hackers/idris-vim'
+Plugin 'neovimhaskell/haskell-vim'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'raichoo/purescript-vim'
 Plugin 'frigoeu/psc-ide-vim'
@@ -21,6 +24,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'shougo/vimproc.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'shougo/deoplete.nvim'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on
@@ -32,14 +36,13 @@ nnoremap <Leader>b :make!<CR>
 map <Leader>n :NERDTreeToggle<CR>
 
 "general
+set termguicolors
+set background=dark
 syntax enable
-set background=light
-colorscheme solarized
+color gruvbox
 
 let g:tex_flavor='latex'
 
-"setlocal softtabstop=4
-"setlocal shiftwidth=4
 set expandtab
 set autoindent 
 
@@ -53,14 +56,16 @@ inoremap jj <esc>
 tnoremap <Esc> <C-\><C-n>
 
 "syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+set statusline+=%t\ %m\ %#warningmsg#%{SyntasticStatuslineFlag()}%*%=%c,%l\ %P
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+"golden-ratio
+let g:loaded_golden_ratio = 0
+
 
 "deoplete
 let g:deoplete#enable_at_startup=1
@@ -83,9 +88,15 @@ autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 au FileType purescript nmap <leader>c :w<CR>:PSCIDEcaseSplit<CR>
 au FileType purescript nmap <leader>t :w<CR>:PSCIDEtype<CR>
 au FileType purescript nmap <leader>ai :w<CR>:PSCIDEaddImportQualifications<CR>
+au FileType purescript nmap <leader>ri :w<CR>:PSCIDEremoveImportQualifications<CR>
 au FileType purescript nmap <leader>i :w<CR>:PSCIDEimportIdentifier<CR>
 au FileType purescript nmap <leader>r :w<CR>:PSCIDEload<CR>
 au FileType purescript setlocal indentexpr="" 
 au FileType purescript setlocal softtabstop=2 
 au FileType purescript setlocal shiftwidth=2
-autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+
+"git
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gm :Gmerge<CR>
+nmap <leader>gp :Gpush<CR>
