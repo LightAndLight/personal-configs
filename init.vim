@@ -2,7 +2,8 @@ set nocompatible
 filetype off
 
 "vundle
-"clone the vundle repo into .vim/bundle/Vundle.vim then call :PluginInstall
+"git clone https://github.com/vundlevim/vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
+":PluginInstall
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
