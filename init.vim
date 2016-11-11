@@ -37,7 +37,7 @@ nnoremap <Leader>b :make!<CR>
 map <Leader>n :NERDTreeToggle<CR>
 
 "general
-set termguicolors
+"set termguicolors "may be needed depending on the terminal
 set background=dark
 syntax enable
 color gruvbox
