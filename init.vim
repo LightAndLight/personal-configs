@@ -37,7 +37,7 @@ nnoremap <Leader>b :make!<CR>
 map <Leader>n :NERDTreeToggle<CR>
 
 "general
-"set termguicolors "may be needed depending on the terminal
+" set termguicolors "may be needed depending on the terminal
 set background=dark
 syntax enable
 color gruvbox
@@ -79,7 +79,7 @@ nnoremap <Enter> :Utl<CR>
 
 "haskell
 au FileType haskell nnoremap <Leader>c :w<CR>:GhcModSplitFunCase<CR>
-au FileType haskell nnoremap <Leader>t :w<CR>:GhcModType<CR>
+au FileType haskell nnoremap <Leader>t :GhcModType<CR>
 au FileType haskell setlocal indentexpr="" 
 au FileType haskell setlocal softtabstop=2 
 au FileType haskell setlocal shiftwidth=2
