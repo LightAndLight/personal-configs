@@ -15,6 +15,7 @@ cfg = def
   , ((mod1Mask, xK_h), sendMessage $ Go L)
   , ((mod1Mask, xK_j), sendMessage $ Go D)
   , ((mod1Mask, xK_k), sendMessage $ Go U)
+  , ((mod1Mask, xK_Return), spawn "xterm")
   ]
 
 main = xmonad =<< xmobar cfg
