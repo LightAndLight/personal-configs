@@ -1,34 +1,55 @@
-set nocompatible
-filetype off
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-"vundle
-"git clone https://github.com/vundlevim/vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
-":PluginInstall
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
+" Required:
+set runtimepath+=/home/isaac/.config/nvim/bundle/repos/github.com/Shougo/dein.vim
 
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'YorickPeterse/happy_hacking.vim'
-Plugin 'lightandlight/gruvbox'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'roman/golden-ratio'
-Plugin 'scrooloose/syntastic'
-Plugin 'jceb/vim-orgmode'
-Plugin 'mattn/emmet-vim'
-Plugin 'idris-hackers/idris-vim'
-Plugin 'neovimhaskell/haskell-vim'
-Plugin 'eagletmt/ghcmod-vim'
-Plugin 'raichoo/purescript-vim'
-Plugin 'frigoeu/psc-ide-vim'
-Plugin 'rust-lang/rust.vim'
-":VimProcInstall
-Plugin 'shougo/vimproc.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'shougo/deoplete.nvim'
-Plugin 'tpope/vim-fugitive'
+" Required:
+if dein#load_state('/home/isaac/.config/nvim/bundle')
+  call dein#begin('/home/isaac/.config/nvim/bundle')
 
-call vundle#end()
+  " Let dein manage dein
+  " Required:
+  call dein#add('/home/isaac/.config/nvim/bundle/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here:
+  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('YorickPeterse/happy_hacking.vim')
+  call dein#add('lightandlight/gruvbox')
+  call dein#add('gmarik/Vundle.vim')
+  call dein#add('roman/golden-ratio')
+  call dein#add('vim-syntastic/syntastic', {'rev': '3.8.0'})
+  call dein#add('jceb/vim-orgmode')
+  call dein#add('mattn/emmet-vim')
+  call dein#add('idris-hackers/idris-vim')
+  call dein#add('neovimhaskell/haskell-vim')
+  call dein#add('eagletmt/ghcmod-vim')
+  call dein#add('raichoo/purescript-vim')
+  call dein#add('frigoeu/psc-ide-vim')
+  call dein#add('rust-lang/rust.vim')
+  call dein#add('shougo/vimproc.vim', {'build': 'make'})
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('shougo/deoplete.nvim')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('nbouscal/vim-stylish-haskell')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
 filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
 
 "leader bindings
 let mapleader = "\<Space>"
@@ -46,6 +67,8 @@ let g:tex_flavor='latex'
 
 set expandtab
 set autoindent 
+set softtabstop=4
+set shiftwidth=4
 
 set number
 set ruler
@@ -67,7 +90,6 @@ let g:syntastic_check_on_wq = 0
 "golden-ratio
 let g:loaded_golden_ratio = 0
 
-
 "deoplete
 let g:deoplete#enable_at_startup=1
 
@@ -86,12 +108,16 @@ au FileType haskell setlocal shiftwidth=2
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 "purescript
-au FileType purescript nmap <leader>c :w<CR>:PSCIDEcaseSplit<CR>
-au FileType purescript nmap <leader>t :w<CR>:PSCIDEtype<CR>
-au FileType purescript nmap <leader>ai :w<CR>:PSCIDEaddImportQualifications<CR>
-au FileType purescript nmap <leader>ri :w<CR>:PSCIDEremoveImportQualifications<CR>
-au FileType purescript nmap <leader>i :w<CR>:PSCIDEimportIdentifier<CR>
-au FileType purescript nmap <leader>r :w<CR>:PSCIDEload<CR>
+let g:psc_ide_syntastic_mode = 1
+"let g:psc_ide_log_level = 3
+au FileType purescript let syntastic_always_populate_loc_list=1
+au FileType purescript nmap <buffer> <leader>t :<C-U>PSCIDEtype<CR>
+au FileType purescript nmap <buffer> <leader>s :<C-U>PSCIDEapplySuggestion<CR>
+au FileType purescript nmap <buffer> <leader>a :<C-U>PSCIDEaddTypeAnnotation<CR>
+au FileType purescript nmap <buffer> <leader>i :<C-U>PSCIDEimportIdentifier<CR>
+au FileType purescript nmap <buffer> <leader>r :<C-U>PSCIDEload<CR>
+au FileType purescript nmap <buffer> <leader>p :<C-U>PSCIDEpursuit<CR>
+au FileType purescript nmap <buffer> <leader>c :<C-U>PSCIDEcaseSplit<CR>
 au FileType purescript setlocal indentexpr="" 
 au FileType purescript setlocal softtabstop=2 
 au FileType purescript setlocal shiftwidth=2
