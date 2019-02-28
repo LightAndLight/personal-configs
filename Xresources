@@ -2,6 +2,7 @@ xterm*faceName: DejaVu Sans Mono:size=15:antialias=true
 xterm*font: 7x13
 URxvt.font: xft:DejaVu Sans Mono:size=15:antialias=true
 URxvt.scrollBar: false]
+Xft*dpi: 192
 
 ! -----------------------------------------------------------------------------
 ! File: gruvbox-dark.xresources
