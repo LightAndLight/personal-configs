@@ -13,11 +13,8 @@ cfg = def
   , manageHook =
       manageDocks <+>
       manageHook def
-  , layoutHook =
-      mouseResizableTile |||
-      (windowNavigation . avoidStruts $ layoutHook def)
+  , layoutHook = windowNavigation . avoidStruts $ layoutHook def
   , handleEventHook = handleEventHook def <> docksEventHook
-  , modMask = mod4Mask
   }
   `additionalKeys`
   [ ((mod4Mask, xK_l), sendMessage $ Go R)
