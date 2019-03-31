@@ -10,6 +10,7 @@ import System.Taffybar.Widget.Generic.PollingGraph
 import System.Taffybar.Widget.Layout
 import System.Taffybar.Widget.SNITray
 import System.Taffybar.Widget.SimpleClock
+import System.Taffybar.Widget.Util
 import System.Taffybar.Widget.Windows
 import System.Taffybar.Widget.Workspaces
 
@@ -52,7 +53,7 @@ main = do
       { startWidgets = [ workspaces, layout, note ]
       , centerWidgets = [ windows ]
       , endWidgets = [ tray, clock, mem, cpu ]
-      , barPadding = 15
+      , barPadding = 40
       }
 
   simpleTaffybar config
