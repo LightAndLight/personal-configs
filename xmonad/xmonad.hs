@@ -3,15 +3,18 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.WindowNavigation
+import XMonad.Layout.MouseResizableTile
 import XMonad.Util.EZConfig
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import System.Taffybar.Support.PagerHints (pagerHints)
 
 cfg = def
-  { manageHook = manageDocks <+> manageHook def
-  , layoutHook  = windowNavigation . avoidStruts $ layoutHook def
+  { modMask = mod4Mask
+  , manageHook =
+      manageDocks <+>
+      manageHook def
+  , layoutHook = windowNavigation . avoidStruts $ layoutHook def
   , handleEventHook = handleEventHook def <> docksEventHook
-  , modMask = mod4Mask
   }
   `additionalKeys`
   [ ((mod4Mask, xK_l), sendMessage $ Go R)
