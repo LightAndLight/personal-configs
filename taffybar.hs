@@ -5,6 +5,7 @@ import System.Taffybar
 import System.Taffybar.Information.CPU
 import System.Taffybar.Information.Memory
 import System.Taffybar.SimpleConfig
+import System.Taffybar.Widget.Battery
 import System.Taffybar.Widget.FreedesktopNotifications
 import System.Taffybar.Widget.Generic.PollingGraph
 import System.Taffybar.Widget.Layout
@@ -39,6 +40,7 @@ main = do
       }
 
   let
+    bat = textBatteryNew "$percentage$% ($time$)"
     clock = textClockNew Nothing "<span fgcolor='orange'>%a %b %_d %H:%M</span>" 1
     note = notifyAreaNew defaultNotificationConfig
     mem = pollingGraphNew memCfg 1 memCallback
@@ -51,8 +53,8 @@ main = do
       defaultSimpleTaffyConfig
       { startWidgets = [ workspaces, layout, note ]
       , centerWidgets = [ windows ]
-      , endWidgets = [ tray, clock, mem, cpu ]
-      , barPadding = 15
+      , endWidgets = [ bat, tray, clock, mem, cpu ]
+      , barPadding = 35
       }
 
   simpleTaffybar config
