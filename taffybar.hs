@@ -5,6 +5,7 @@ import System.Taffybar
 import System.Taffybar.Information.CPU
 import System.Taffybar.Information.Memory
 import System.Taffybar.SimpleConfig
+import System.Taffybar.Widget.Battery
 import System.Taffybar.Widget.FreedesktopNotifications
 import System.Taffybar.Widget.Generic.PollingGraph
 import System.Taffybar.Widget.Layout
@@ -48,11 +49,12 @@ main = do
     workspaces = workspacesNew defaultWorkspacesConfig
     layout = layoutNew defaultLayoutConfig
     windows = windowsNew defaultWindowsConfig
+    battery = textBatteryNew "$percentage$% $time$"
     config =
       defaultSimpleTaffyConfig
       { startWidgets = [ workspaces, layout, note ]
       , centerWidgets = [ windows ]
-      , endWidgets = [ tray, clock, mem, cpu ]
+      , endWidgets = [ battery, tray, clock, mem, cpu ]
       , barPadding = 40
       }
 
