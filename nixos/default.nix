@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./home.nix
     ./packages.nix
     ./xmonad.nix
   ];

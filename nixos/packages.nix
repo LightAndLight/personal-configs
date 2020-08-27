@@ -2,6 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    neovim git firefox dmenu arandr xclip rxvt_unicode
+    neovim firefox dmenu arandr xclip rxvt_unicode
   ];
 }
