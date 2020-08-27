@@ -24,6 +24,7 @@ in
   };
   
   home-manager.users.isaac = { pkgs, ... }: {
+    programs.emacs.enable = true;
     home.file.".emacs.d" = { 
       recursive = true; 
       source = builtins.fetchGit {
@@ -34,9 +35,19 @@ in
         rev = "15d93914f5caf6a3a15c573da60576313b0eee04";
       };
     };
+    home.file.".emacs.d/private/spacemacs-neuron" = { 
+      recursive = true;
+      source = builtins.fetchGit {
+        name = "spacemacs-neuron";
+        url = https://github.com/LightAndLight/spacemacs-neuron/;
+        ref = "refs/heads/master";
+        # `git ls-remote https://github.com/LightAndLight/spacemacs-neuron master`
+        rev = "de11867cedb0eb9a94a84e1353f24224c1076293";
+      };
+    };
     home.file.".spacemacs" = {
       source = ./files/spacemacs;
-    }
+    };
     
     programs.fish.enable = true;
     programs.git = {
