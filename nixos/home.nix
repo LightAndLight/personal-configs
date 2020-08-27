@@ -26,19 +26,23 @@ in
   home-manager.users.isaac = { pkgs, ... }: {
     nixpkgs.overlays = import ./overlays.nix;
 
-    xsession.windowManager.xmonad = {
+    xsession = {
       enable = true;
-      config = ./files/xmonad.hs;
-      enableContribAndExtras = true;
-      extraPackages = pkgs: [ pkgs.taffybar ];
+      windowManager.xmonad = {
+        enable = true;
+        config = ./files/xmonad.hs;
+        enableContribAndExtras = true;
+        extraPackages = pkgs: [ pkgs.taffybar ];
+      };
     };
-  
-    home.file.".xprofile" = {
-      text = ''
-      ${pkgs.haskellPackages.status-notifier-item}/bin/status-notifier-watcher &
-      ${pkgs.haskellPackages.taffybar}/bin/taffybar &
-      '';
-    };
+
+    # TODO: fix the home-manager taffybar module
+    # home.file.".config/taffybar/taffybar.hs" = {
+      # source = ./files/taffybar.hs;
+    # };
+
+    services.status-notifier-watcher.enable = true;
+    services.taffybar.enable = true;
 
     xresources = {
       properties = {
