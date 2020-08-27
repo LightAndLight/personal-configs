@@ -34,6 +34,9 @@ in
         rev = "15d93914f5caf6a3a15c573da60576313b0eee04";
       };
     };
+    home.file.".spacemacs" = {
+      source = ./files/spacemacs;
+    }
     
     programs.fish.enable = true;
     programs.git = {
