@@ -32,6 +32,29 @@ in
       ${pkgs.haskellPackages.taffybar}/bin/taffybar &
       '';
     };
+
+    xresources = {
+      properties = {
+        "xterm*faceName" = "DejaVu Sans Mono:size=12:antialias=true";
+        "URxvt.font" = "xft:DejaVu Sans Mono:size=12:antialias=true";
+        "URxvt.scrollBar" = "false";
+        "Xft.dpi" = "284";
+        "Xft.antialias" = "1";
+      };
+      extraConfig =
+        let
+          gruvbox-contrib =
+            pkgs.fetchFromGitHub {
+              owner = "morhetz";
+              repo = "gruvbox-contrib";
+              rev = "edb3ee5f626cdfb250d5ab42c1f5ccb9f8050514";
+              sha256 = "0n32s5var4xxwk3bwm70mwja0gy6vaj2awm6kji10yw3fpqgg7yh";
+            };
+        in
+          builtins.readFile (
+            "${gruvbox-contrib}/xresources/gruvbox-dark.xresources"
+          );
+    };
     
     programs.emacs.enable = true;
     home.file.".emacs.d" = { 
