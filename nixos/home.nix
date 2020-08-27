@@ -9,14 +9,14 @@ let
       # `git ls-remote https://github.com/rycee/home-manager release-20.03`
       rev = "4a8d6280544d9b061c0b785d2470ad6eeda47b02";
     })
-    {};
+    { inherit pkgs; };
 in
 
 {
   imports = [
     home-manager.nixos
   ];
-  
+
   users.users.isaac = {
     isNormalUser = true;
     shell = pkgs.fish;
@@ -24,6 +24,15 @@ in
   };
   
   home-manager.users.isaac = { pkgs, ... }: {
+    nixpkgs.overlays = import ./overlays.nix;
+  
+    home.file.".xprofile" = {
+      text = ''
+      ${pkgs.haskellPackages.status-notifier-item}/bin/status-notifier-watcher &
+      ${pkgs.haskellPackages.taffybar}/bin/taffybar &
+      '';
+    };
+    
     programs.emacs.enable = true;
     home.file.".emacs.d" = { 
       recursive = true; 
