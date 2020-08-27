@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+set -euo pipefail
+
+config_dir="$HOME"/.config
+
+mkdir -p "$config_dir"
+
+
+# xmonad
+
+xmonad_dir="$HOME"/.xmonad
+
+mkdir -p "$xmonad_dir"
+ln -fs "$(pwd)"/xmonad/xmonad.hs "$xmonad_dir"/xmonad.hs
+
+
+# Xresources
+
+ln -fs "$(pwd)"/Xresources "$HOME"/.Xresources
+xrdb -merge "$HOME"/.Xresources
