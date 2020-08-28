@@ -2,11 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-    neovim 
-    firefox 
-    dmenu 
-    arandr 
-    xclip 
+    neovim
+    dmenu
+    arandr
+    xclip
     rxvt_unicode
     nix-prefetch-git
   ];
