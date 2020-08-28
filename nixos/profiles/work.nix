@@ -9,4 +9,6 @@
       };
     };
   };
+
+  services.keybase.enable = true;
 }
