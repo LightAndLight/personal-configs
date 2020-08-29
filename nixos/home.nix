@@ -4,10 +4,14 @@ let
   home-manager =
     import (builtins.fetchGit {
       name = "home-manager";
-      url = https://github.com/rycee/home-manager/;
-      ref = "refs/heads/release-20.03";
+      # url = https://github.com/rycee/home-manager/;
+      # ref = "refs/heads/release-20.03";
       # `git ls-remote https://github.com/rycee/home-manager release-20.03`
-      rev = "4a8d6280544d9b061c0b785d2470ad6eeda47b02";
+      # rev = "4a8d6280544d9b061c0b785d2470ad6eeda47b02";
+
+      url = /home/isaac/home-manager;
+      ref = "refs/heads/taffybar-config";
+      rev = "863d7807a5ec67c71c835b52f77a675e04790f2b";
     })
     { inherit pkgs; };
 in
@@ -22,7 +26,7 @@ in
     shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" ];
   };
-  
+
   home-manager.users.isaac = { pkgs, ... }: {
     nixpkgs.overlays = import ./overlays.nix;
 
@@ -36,20 +40,18 @@ in
       };
     };
 
-    # TODO: fix the home-manager taffybar module
-    # home.file.".config/taffybar/taffybar.hs" = {
-      # source = ./files/taffybar.hs;
-    # };
-
     services.status-notifier-watcher.enable = true;
-    services.taffybar.enable = true;
+    services.taffybar = {
+      enable = true;
+      config = ./files/taffybar.hs;
+    };
 
     xresources = {
       properties = {
         "xterm*faceName" = "DejaVu Sans Mono:size=12:antialias=true";
         "URxvt.font" = "xft:DejaVu Sans Mono:size=12:antialias=true";
         "URxvt.scrollBar" = "false";
-        "Xft.dpi" = "284";
+        "Xft.dpi" = config.settings.dpi;
         "Xft.antialias" = "1";
       };
       extraConfig =
