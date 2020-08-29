@@ -1,3 +1,4 @@
+{ settings }:
 { config, pkgs, ... }: {
   nixpkgs.overlays = import ../overlays.nix;
 
@@ -24,7 +25,7 @@
       "xterm*faceName" = "DejaVu Sans Mono:size=12:antialias=true";
       "URxvt.font" = "xft:DejaVu Sans Mono:size=12:antialias=true";
       "URxvt.scrollBar" = "false";
-      "Xft.dpi" = config.settings.dpi;
+      "Xft.dpi" = settings.dpi;
       "Xft.antialias" = "1";
     };
     extraConfig =

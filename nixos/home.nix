@@ -14,6 +14,8 @@ let
       rev = "863d7807a5ec67c71c835b52f77a675e04790f2b";
     })
     { inherit pkgs; };
+
+  common = import ./profiles/common.nix { settings = config.settings; };
 in
 
 {
@@ -34,12 +36,12 @@ in
   };
 
   home-manager.users.isaac = pkgs.lib.mkMerge [
-    (import ./profiles/common.nix)
+    common
     (import ./profiles/personal.nix)
   ];
 
   home-manager.users.work = pkgs.lib.mkMerge [
-    (import ./profiles/common.nix)
+    common
     (import ./profiles/work.nix)
   ];
 }
