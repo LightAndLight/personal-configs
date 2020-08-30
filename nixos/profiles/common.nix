@@ -12,13 +12,10 @@
     };
   };
 
-  # TODO: fix the home-manager taffybar module
-  # home.file.".config/taffybar/taffybar.hs" = {
-    # source = ./files/taffybar.hs;
-  # };
-
   services.status-notifier-watcher.enable = true;
-  services.taffybar.enable = true;
+  services.taffybar = {
+    enable = true;
+  };
 
   xresources = {
     properties = {
