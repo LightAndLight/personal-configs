@@ -7,8 +7,12 @@
       core = {
         editor = "nvim";
       };
+      url = {
+        "git@bitbucket.org:" = {
+          insteadOf = "https://bitbucket.org/";
+        };
+      };
     };
   };
-
   services.keybase.enable = true;
 }
