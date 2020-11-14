@@ -55,7 +55,7 @@ main = do
       { startWidgets = [ workspaces, layout, note ]
       , centerWidgets = [ windows ]
       , endWidgets = [ battery, tray, clock, mem, cpu ]
-      , barPadding = 40
+      , barPadding = 0
       }
 
   simpleTaffybar config
