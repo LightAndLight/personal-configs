@@ -48,7 +48,7 @@
       url = https://github.com/syl20bnr/spacemacs/;
       ref = "refs/heads/develop";
       # `git ls-remote https://github.com/syl20bnr/spacemacs develop`
-      rev = "15d93914f5caf6a3a15c573da60576313b0eee04";
+      rev = "c3872f165c3ea0862cdb939c5e7b7494b5ce0e72";
     };
   };
   home.file.".emacs.d/private/spacemacs-neuron" = {

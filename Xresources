@@ -1,7 +1,7 @@
 xterm*faceName: DejaVu Sans Mono:size=12:antialias=true
 URxvt.font: xft:DejaVu Sans Mono:size=12:antialias=true
 URxvt.scrollBar: false
-Xft.dpi: 284
+Xft.dpi: 196
 Xft.antialias: 1
 
 ! -----------------------------------------------------------------------------
