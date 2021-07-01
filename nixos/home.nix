@@ -17,6 +17,10 @@ in
     home-manager.nixos
   ];
 
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
+  environment.systemPackages = [ pkgs.pavucontrol ];
+
   users.users.isaac = {
     isNormalUser = true;
     shell = pkgs.fish;

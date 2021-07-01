@@ -8,5 +8,6 @@
     xclip
     rxvt_unicode
     nix-prefetch-git
+    scrot
   ];
 }

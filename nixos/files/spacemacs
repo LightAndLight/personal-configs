@@ -45,6 +45,8 @@ This function should only modify configuration layer settings."
      lsp
      (haskell :variables
               haskell-completion-backend 'lsp)
+     agda
+     idris
      (rust :variables
            rust-format-on-save t)
      helm
