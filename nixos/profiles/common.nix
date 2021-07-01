@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ settings }:
+{ config, pkgs, ... }: {
   nixpkgs.overlays = import ../overlays.nix;
 
   xsession = {
@@ -11,20 +12,17 @@
     };
   };
 
-  # TODO: fix the home-manager taffybar module
-  # home.file.".config/taffybar/taffybar.hs" = {
-    # source = ./files/taffybar.hs;
-  # };
-
   services.status-notifier-watcher.enable = true;
-  services.taffybar.enable = true;
+  services.taffybar = {
+    enable = true;
+  };
 
   xresources = {
     properties = {
       "xterm*faceName" = "DejaVu Sans Mono:size=12:antialias=true";
       "URxvt.font" = "xft:DejaVu Sans Mono:size=12:antialias=true";
       "URxvt.scrollBar" = "false";
-      "Xft.dpi" = "284";
+      "Xft.dpi" = settings.dpi;
       "Xft.antialias" = "1";
     };
     extraConfig =
@@ -50,10 +48,10 @@
       url = https://github.com/syl20bnr/spacemacs/;
       ref = "refs/heads/develop";
       # `git ls-remote https://github.com/syl20bnr/spacemacs develop`
-      rev = "15d93914f5caf6a3a15c573da60576313b0eee04";
+      rev = "728c0ffb48ddba4e1595283cf2899e4e8e734f2a";
     };
   };
-  home.file.".emacs.d/private/spacemacs-neuron" = { 
+  home.file.".emacs.d/private/spacemacs-neuron" = {
     recursive = true;
     source = builtins.fetchGit {
       name = "spacemacs-neuron";

@@ -1,7 +1,7 @@
 let
-  unstable =
+  unstable-20200404 =
     import (builtins.fetchGit {
-      name = "nixos-unstable-2020-04-04";
+      name = "nixos-unstable-20200404";
         url = https://github.com/nixos/nixpkgs-channels/;
         ref = "refs/heads/nixos-unstable";
         # `git ls-remote https://github.com/nixos/nixpkgs-channels nixos-unstable`
@@ -11,11 +11,11 @@ let
 in
   [
     (self: super: {
-      haskellPackages = super.haskellPackages.override {
-        overrides = old: new: {
-          taffybar = unstable.haskellPackages.taffybar;
+      haskellPackages =
+        super.haskellPackages.override {
+          overrides = old: new: {
+            taffybar = unstable-20200404.haskellPackages.taffybar;
+          };
         };
-      };
     })
   ]
-  

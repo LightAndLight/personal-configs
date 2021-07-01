@@ -5,11 +5,13 @@ let
     import (builtins.fetchGit {
       name = "home-manager";
       url = https://github.com/rycee/home-manager/;
-      ref = "refs/heads/release-20.03";
-      # `git ls-remote https://github.com/rycee/home-manager release-20.03`
-      rev = "4a8d6280544d9b061c0b785d2470ad6eeda47b02";
+      ref = "refs/heads/release-20.09";
+      # `git ls-remote https://github.com/rycee/home-manager release-20.09`
+      rev = "63f299b3347aea183fc5088e4d6c4a193b334a41";
     })
     { inherit pkgs; };
+
+  common = import ./profiles/common.nix { settings = config.settings; };
 in
 
 {
@@ -34,12 +36,12 @@ in
   };
 
   home-manager.users.isaac = pkgs.lib.mkMerge [
-    (import ./profiles/common.nix)
+    common
     (import ./profiles/personal.nix)
   ];
 
   home-manager.users.work = pkgs.lib.mkMerge [
-    (import ./profiles/common.nix)
+    common
     (import ./profiles/work.nix)
   ];
 }
