@@ -9,5 +9,7 @@
     rxvt_unicode
     nix-prefetch-git
     scrot
+
+    manpages tree ripgrep fd sd jq
   ];
 }
