@@ -56,9 +56,9 @@
     source = builtins.fetchGit {
       name = "spacemacs-neuron";
       url = https://github.com/LightAndLight/spacemacs-neuron/;
-      ref = "refs/heads/master";
+      ref = "refs/heads/1.9.33.0";
       # `git ls-remote https://github.com/LightAndLight/spacemacs-neuron master`
-      rev = "de11867cedb0eb9a94a84e1353f24224c1076293";
+      rev = "3750b3e7793f50e11ffac3aa0425a56fc279d5ab";
     };
   };
   home.file.".spacemacs" = {

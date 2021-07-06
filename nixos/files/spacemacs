@@ -72,7 +72,11 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      (neuron-mode :location (recipe
+                                                              :fetcher github
+                                                              :repo "LightAndLight/neuron-mode"
+                                                              :branch "1.9.33.0")))
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -550,7 +554,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (add-hook 'neuron-mode-hook 'turn-on-auto-fill)
+  (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
   (add-hook 'haskell-mode-hook #'lsp)
   (setq lsp-haskell-process-path-hie "haskell-language-server")
   (setq lsp-haskell-process-path-args nil))
