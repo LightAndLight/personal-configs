@@ -1,4 +1,14 @@
 { ... }: {
+  services.xscreensaver = {
+    enable = true;
+    settings = {
+      lock = "True";
+      fade = "False";
+      unfade = "False";
+      fadeSeconds = "0:00:00";
+    };
+  };
+
   programs.git = {
     enable = true;
     userName = "Isaac Elliott";

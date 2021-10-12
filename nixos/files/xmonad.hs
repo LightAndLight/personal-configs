@@ -22,6 +22,7 @@ cfg = def
   , ((mod4Mask, xK_j), sendMessage $ Go D)
   , ((mod4Mask, xK_k), sendMessage $ Go U)
   , ((mod4Mask, xK_Return), spawn "urxvt")
+  , ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
   ]
 
 main = xmonad $ ewmh {- $ pagerHints -} cfg
