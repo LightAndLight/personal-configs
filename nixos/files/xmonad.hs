@@ -6,7 +6,7 @@ import XMonad.Layout.WindowNavigation
 import XMonad.Layout.MouseResizableTile
 import XMonad.Util.EZConfig
 import XMonad.Hooks.EwmhDesktops (ewmh)
-import System.Taffybar.Support.PagerHints (pagerHints)
+-- import System.Taffybar.Support.PagerHints (pagerHints)
 
 cfg = def
   { modMask = mod4Mask
@@ -22,6 +22,7 @@ cfg = def
   , ((mod4Mask, xK_j), sendMessage $ Go D)
   , ((mod4Mask, xK_k), sendMessage $ Go U)
   , ((mod4Mask, xK_Return), spawn "urxvt")
+  , ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
   ]
 
-main = xmonad $ ewmh $ pagerHints cfg
+main = xmonad $ ewmh {- $ pagerHints -} cfg
