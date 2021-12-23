@@ -78,4 +78,15 @@
       '';
     };
   };
+  
+  programs.git = {
+    extraConfig = {
+      push = {
+        default = "current";
+      };
+      pull = {
+        rebase = false;
+      };
+    };
+  };
 }
