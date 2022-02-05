@@ -42,6 +42,6 @@ in
 
   home-manager.users.work = pkgs.lib.mkMerge [
     common
-    (import ./profiles/work.nix)
+    (import ./profiles/ninebyte.nix)
   ];
 }
