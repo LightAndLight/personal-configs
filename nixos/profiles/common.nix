@@ -78,4 +78,20 @@
       '';
     };
   };
+
+  programs.git = {
+    enable = true;
+    userName = "Isaac Elliott";
+    extraConfig = {
+      core = {
+        editor = "nvim";
+      };
+      pull = {
+        rebase = false;
+      };
+      push = {
+        default = "current";
+      };
+    };
+  };
 }
