@@ -41,6 +41,7 @@ main = do
       }
 
   let
+    bat = textBatteryNew "$percentage$% ($time$)"
     clock = textClockNew Nothing "<span fgcolor='orange'>%a %b %_d %H:%M</span>" 1
     note = notifyAreaNew defaultNotificationConfig
     mem = pollingGraphNew memCfg 1 memCallback
