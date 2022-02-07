@@ -16,6 +16,7 @@
   services.taffybar = {
     enable = true;
   };
+  services.xscreensaver.enable = true;
 
   xresources = {
     properties = {
