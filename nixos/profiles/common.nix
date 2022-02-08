@@ -66,7 +66,12 @@
     source = ../files/spacemacs;
   };
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      fish_vi_key_bindings
+    '';
+  };
 
   programs.firefox = {
     enable = true;
