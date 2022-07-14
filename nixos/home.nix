@@ -5,9 +5,9 @@ let
     import (builtins.fetchGit {
       name = "home-manager";
       url = https://github.com/rycee/home-manager/;
-      ref = "refs/heads/release-21.05";
-      # `git ls-remote https://github.com/rycee/home-manager release-21.05`
-      rev = "9c0abed5228d54aad120b4bc757b6f5935aeda1c";
+      ref = "refs/heads/release-22.05";
+      # `git ls-remote https://github.com/rycee/home-manager release-22.05`
+      rev = "4a3d01fb53f52ac83194081272795aa4612c2381";
     })
     { inherit pkgs; };
 

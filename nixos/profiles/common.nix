@@ -1,14 +1,12 @@
 { settings }:
 { config, pkgs, ... }: {
-  nixpkgs.overlays = import ../overlays.nix;
-
   xsession = {
     enable = true;
     windowManager.xmonad = {
       enable = true;
       config = ../files/xmonad.hs;
       enableContribAndExtras = true;
-      extraPackages = pkgs: [ pkgs.taffybar ];
+      extraPackages = pkgs: [];
     };
   };
 
