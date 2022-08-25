@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    neovim
+    neovim vscode
     dmenu
     arandr
     xclip
@@ -10,6 +10,6 @@
     nix-prefetch-git
     scrot
 
-    manpages tree ripgrep fd sd jq
+    man-pages tree ripgrep fd sd jq
   ];
 }

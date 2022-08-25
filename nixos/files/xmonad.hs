@@ -6,15 +6,16 @@ import XMonad.Layout.WindowNavigation
 import XMonad.Layout.MouseResizableTile
 import XMonad.Util.EZConfig
 import XMonad.Hooks.EwmhDesktops (ewmh)
--- import System.Taffybar.Support.PagerHints (pagerHints)
 
-cfg = def
+cfg =
+  docks $
+  def
   { modMask = mod4Mask
   , manageHook =
       manageDocks <+>
       manageHook def
   , layoutHook = windowNavigation . avoidStruts $ layoutHook def
-  , handleEventHook = handleEventHook def <> docksEventHook
+  , handleEventHook = handleEventHook def
   }
   `additionalKeys`
   [ ((mod4Mask, xK_l), sendMessage $ Go R)
@@ -25,4 +26,4 @@ cfg = def
   , ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
   ]
 
-main = xmonad $ ewmh {- $ pagerHints -} cfg
+main = xmonad $ ewmh cfg
