@@ -6,7 +6,6 @@
       enable = true;
       config = ../files/xmonad.hs;
       enableContribAndExtras = true;
-      extraPackages = pkgs: [];
     };
   };
 
