@@ -5,6 +5,7 @@
 
   programs.ssh = {
     enable = true;
+
     matchBlocks.ninebyte-gitlab = {
       hostname = "gitlab.com";
       user = "git";
