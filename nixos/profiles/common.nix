@@ -115,11 +115,12 @@
 
   programs.helix = {
     enable = true;
-    settings.theme = "gruvbox_light";
+    settings.theme = "gruvbox";
     # requires 23.03
     # settings.editor.soft-wrap.enable = true;
     settings.editor.cursor-shape = {
       insert = "bar";
+      select = "underline";
     };
     settings.editor.lsp = {
       display-messages = true;
