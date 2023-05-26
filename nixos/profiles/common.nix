@@ -128,6 +128,13 @@
     };
   };
 
+  # Without this, Taffybar crashes when launching Alacritty.
+  #
+  # See:
+  #
+  # * https://github.com/taffybar/taffybar/issues/332#issuecomment-722998632
+  # * https://github.com/taffybar/taffybar/issues/332#issuecomment-723000490
+  home.sessionVariables.GDK_PIXBUF_MODULE_FILE = "${pkgs.librsvg.out}/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache";
   programs.alacritty = {
     enable = true;
     settings = {
