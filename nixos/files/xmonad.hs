@@ -22,7 +22,7 @@ cfg =
   , ((mod4Mask, xK_h), sendMessage $ Go L)
   , ((mod4Mask, xK_j), sendMessage $ Go D)
   , ((mod4Mask, xK_k), sendMessage $ Go U)
-  , ((mod4Mask, xK_Return), spawn "urxvt")
+  , ((mod4Mask, xK_Return), spawn "alacritty")
   , ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
   ]
 
