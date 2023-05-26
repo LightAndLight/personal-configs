@@ -9,7 +9,11 @@
     };
     displayManager = {
       defaultSession = "xterm";
-      lightdm.enable = true;
+      lightdm = {
+        enable = true;
+        # Generated using https://github.com/lunik1/nix-wallpaper
+        background = ./nix-wallpaper.png;
+      };
     };
   };
 }
