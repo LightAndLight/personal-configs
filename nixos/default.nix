@@ -26,5 +26,6 @@
 
   config = {
     services.upower.enable = config.settings.isLaptop;
+    hardware.keyboard.zsa.enable = true;
   };
 }
