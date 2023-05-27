@@ -18,12 +18,16 @@ cfg =
   , handleEventHook = handleEventHook def
   }
   `additionalKeys`
-  [ ((mod4Mask, xK_l), sendMessage $ Go R)
+  [ ((mod4Mask, xK_Return), spawn "alacritty")
+  , ((mod4Mask .|. controlMask, xK_l), spawn "xscreensaver-command -lock")
   , ((mod4Mask, xK_h), sendMessage $ Go L)
   , ((mod4Mask, xK_j), sendMessage $ Go D)
   , ((mod4Mask, xK_k), sendMessage $ Go U)
-  , ((mod4Mask, xK_Return), spawn "alacritty")
-  , ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
+  , ((mod4Mask, xK_l), sendMessage $ Go R)
+  , ((mod4Mask .|. shiftMask, xK_h), sendMessage $ Swap L)
+  , ((mod4Mask .|. shiftMask, xK_j), sendMessage $ Swap D)
+  , ((mod4Mask .|. shiftMask, xK_k), sendMessage $ Swap U)
+  , ((mod4Mask .|. shiftMask, xK_l), sendMessage $ Swap R)
   ]
 
 main = xmonad $ ewmh cfg
