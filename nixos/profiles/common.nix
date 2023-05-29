@@ -99,7 +99,7 @@
     userName = "Isaac Elliott";
     extraConfig = {
       core = {
-        editor = "nvim";
+        editor = "hx";
       };
       init = {
         defaultBranch = "main";
