@@ -16,5 +16,7 @@
     man-pages tree ripgrep fd sd jq
 
     wally-cli
+
+    unzip
   ];
 }
