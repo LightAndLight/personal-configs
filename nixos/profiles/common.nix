@@ -7,6 +7,9 @@
       config = ../files/xmonad.hs;
       enableContribAndExtras = true;
     };
+    initExtra = with pkgs; ''
+      ${xorg.xset}/bin/xset -b
+    '';
   };
 
   services.status-notifier-watcher.enable = true;
