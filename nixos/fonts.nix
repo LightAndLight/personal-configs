@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     source-code-pro
     dejavu_fonts
     (pkgs.stdenv.mkDerivation {

@@ -12,6 +12,13 @@
     '';
   };
 
+  home.pointerCursor = {
+    x11.enable = false;
+    name = "Vanilla-DMZ";
+    package = pkgs.vanilla-dmz;
+    size = 32;
+  };
+
   services.status-notifier-watcher.enable = true;
   services.taffybar = {
     enable = true;
@@ -25,6 +32,8 @@
       "URxvt.scrollBar" = "false";
       "Xft.dpi" = settings.dpi;
       "Xft.antialias" = "1";
+      "Xcursor.theme" = config.home.pointerCursor.name;
+      "Xcursor.size" = config.home.pointerCursor.size;
     };
     extraConfig =
       let
