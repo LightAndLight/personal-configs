@@ -135,6 +135,7 @@
       insert = "bar";
       select = "underline";
     };
+    settings.editor.file-picker.hidden = false;
     # requires 23.03?
     # settings.editor.text-width = 100;
     settings.editor.lsp = {
@@ -148,6 +149,16 @@
         "^" = "extend_to_line_start";
       };
     };
+    languages = [
+      {
+        name = "rust";
+        config.rust-analyzer.check.command = "clippy";
+      }
+      {
+        name = "markdown";
+        language-server.command = "marksman";
+      }
+    ];
   };
 
   # Without this, Taffybar crashes when launching Alacritty.
