@@ -42,7 +42,9 @@ in
     (import ./profiles/personal.nix)
   ];
 
-  home-manager.users.work = pkgs.lib.mkMerge [
-    common
-  ];
+  # Disabled to debug slow boot times.
+  #
+  # home-manager.users.work = pkgs.lib.mkMerge [
+  #   common
+  # ];
 }
