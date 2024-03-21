@@ -21,6 +21,7 @@
     unzip
     nix-prefetch-git
     xclip
+    moreutils
 
     wally-cli
 
