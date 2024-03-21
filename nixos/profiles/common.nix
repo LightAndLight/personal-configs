@@ -160,16 +160,11 @@
         "^" = "extend_to_line_start";
       };
     };
-    languages = [
-      {
-        name = "rust";
-        config.rust-analyzer.check.command = "clippy";
-      }
-      {
-        name = "markdown";
-        language-server.command = "marksman";
-      }
-    ];
+    languages = {
+      language-server.rust-analyzer = {
+        config.check.command = "clippy";
+      };
+    };
   };
 
   # Without this, Taffybar crashes when launching Alacritty.
