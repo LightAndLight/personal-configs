@@ -1,5 +1,9 @@
 { settings }:
 { config, pkgs, ... }: {
+  imports = [
+    ../git.nix
+  ];
+
   xsession = {
     enable = true;
     windowManager.xmonad = {
@@ -119,26 +123,6 @@
     matchBlocks."github.com" = {
       identityFile = "${config.home.homeDirectory}/.ssh/id_ed25519";
       extraOptions.PreferredAuthentications = "publickey";
-    };
-  };
-
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-    userName = "Isaac Elliott";
-    extraConfig = {
-      core = {
-        editor = "hx";
-      };
-      init = {
-        defaultBranch = "main";
-      };
-      pull = {
-        rebase = false;
-      };
-      push = {
-        default = "current";
-      };
     };
   };
 
