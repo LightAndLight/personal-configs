@@ -20,19 +20,23 @@
     '';
 
     functions = {
-      cd = ''
+      cd =
+        let
+          util-linux = pkgs.callPackage ./deps/util-linux { systemdSupport = false; };
+        in
+        ''
         builtin cd $argv
 
-        set listed "$(ls --classify=always | head -n 20)"
+        set listed "$(ls --color=always --classify=always | head -n 20)"
 
-        echo "$(echo $listed | column -c 120)";
+        echo "$(echo $listed | ${util-linux}/bin/column -c 120)";
 
         set listedCount (echo $listed | wc -l)
         set total (ls | wc -l)
         if test "$listedCount" != "$total"
           echo "($listedCount of $total shown)"
         end
-      '';
+        '';
     };
   };
 }
