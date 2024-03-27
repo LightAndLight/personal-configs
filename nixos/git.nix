@@ -31,8 +31,48 @@ in
 
         amend = aliasCommand "amend" ''
           #! /usr/bin/env bash
+          set -euo pipefail
 
-          git co --amend --no-edit
+          if [ $# -eq 0 ]
+          then
+            basePrefix=$(
+              git -c color.ui=always l | \
+              ${pkgs.fzf}/bin/fzf --ansi --layout=reverse-list --height=~100% | \
+              cut -d " " -f 1
+            )
+          elif [ $# -eq 1 ]
+          then
+            basePrefix="$1"
+          else
+            echo "error: expected 0 or 1 argument"
+            exit 1
+          fi
+
+          commits=$(git rev-list --all | ${pkgs.ripgrep}/bin/rg "^$basePrefix")
+          if [ "$(wc -l <<<"$commits")" == 1 ]
+          then
+            base="$commits"
+          else
+            base="$(
+              xargs \
+                git \
+                  -c color.ui=always \
+                  log \
+                  --pretty=format:'%C(yellow)%H%Creset - %s %Cgreen(%cr)%C(bold blue)%d%Creset' \
+                  --abbrev-commit \
+                  --no-walk \
+                  <<<"$commits" | \
+              ${pkgs.fzf}/bin/fzf --ansi --layout=reverse-list --height=~100% | \
+              cut -d " " -f 1
+            )"
+          fi
+
+          git commit -q -m "fixup! $base"
+          git -c core.editor=true rebase -i --autosquash "$base~1"
+
+          echo ""
+
+          git l
         '';
 
         ap = aliasCommand "ap" ''
@@ -122,6 +162,8 @@ in
               "$@"
           fi
         '';
+
+        f = "fetch";
 
         lg = aliasCommand "lg" ''
           #! /usr/bin/env bash
