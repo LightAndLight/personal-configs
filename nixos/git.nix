@@ -1,6 +1,6 @@
 { config, pkgs, ... }: 
 let
-  aliasCommand = alias: code: "!${pkgs.writeScript "git-alias-${alias}" code}";
+  aliasCommand = alias: code: "!cd -- \"\${GIT_PREFIX:-.}\"; ${pkgs.writeScript "git-alias-${alias}" code}";
 in
 {
   programs.git = {
