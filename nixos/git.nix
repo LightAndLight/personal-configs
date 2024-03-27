@@ -105,6 +105,8 @@ in
           echo "$committed"
         '';
 
+        com = "co -m";
+
         ch = aliasCommand "ch" ''
           #! /usr/bin/env bash
           set -euo pipefail
