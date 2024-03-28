@@ -29,7 +29,7 @@
 
         set listedCount (echo $listed | wc -l)
         set total (ls | wc -l)
-        if test "$listedCount" != "$total"
+        if test "$listedCount" != "$total" && test "$total" != 0
           echo "($listedCount of $total shown)"
         end
       '';
