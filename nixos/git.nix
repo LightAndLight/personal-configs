@@ -249,7 +249,7 @@ in
         st = aliasCommand "st" ''
           #! /usr/bin/env bash
 
-          changes=$(git -c color.ui=always status -s "$@" | sed 's/^\s*//')
+          changes=$(git -c color.ui=always status -s "$@")
           if [ "$changes" = "" ]
           then
             echo "No changes."
