@@ -109,11 +109,12 @@ in
         ch = aliasCommand "ch" ''
           #! /usr/bin/env bash
           set -euo pipefail
+          shopt -s extglob
 
           if [ $# -eq 0 ]
           then
             selection=$(git branch --color --list --all | \
-              nix shell nixpkgs#fzf -c \
+              ${pkgs.fzf}/bin/fzf -c \
                 fzf --ansi --layout=reverse-list --height=~100% --prompt="Select branch: " | \
               sed "s/^\*\? *//"
             )
@@ -132,6 +133,25 @@ in
               fi
             else
               git checkout "$selection"
+            fi
+          elif [ $# -eq 1 ]
+          then
+            if git checkout "$1" > /dev/null 2>/dev/null
+            then
+              echo "Switched to branch '$1'"
+            else
+              echo "Branch '$1' not found. Create? (y/n) (default: y)"
+              while true; do
+                read yn
+                case $yn in
+                  ?(y) )
+                    git checkout -b "$1"
+                    break
+                    ;;
+                  n ) exit;;
+                  * ) echo "Enter 'y' or 'n'";;
+                esac
+              done
             fi
           else
             git checkout "$@"
@@ -186,8 +206,6 @@ in
               "$@"
           fi
         '';
-
-        nch = "checkout -b";
 
         nco = aliasCommand "nco" ''
           #! /usr/bin/env bash
