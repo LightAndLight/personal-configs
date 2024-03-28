@@ -281,6 +281,14 @@ in
 
           git stash push -q && git st
         '';
+
+        undo = aliasCommand "undo" ''
+          #! /usr/bin/env bash
+          set -e
+
+          git reset --soft HEAD~1
+          git st
+        '';
       };
     };
   };
