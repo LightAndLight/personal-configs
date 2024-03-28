@@ -93,10 +93,9 @@ in
 
         co = aliasCommand "co" ''
           #! /usr/bin/env bash
-          set -e
+          set -eu
 
-          committed=$(git -c color.ui=always commit --short --dry-run)
-
+          committed=$(git diff --cached --name-only)
           git commit -q "$@"
 
           git st
