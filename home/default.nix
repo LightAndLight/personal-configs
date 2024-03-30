@@ -1,15 +1,15 @@
 {
   imports = [
+    ./alacritty.nix
+    ./emacs
+    ./firefox.nix
     ./fish.nix
     ./git.nix
     ./helix.nix
-    ./xsession
-    ./emacs
-    ./xresources.nix
-    ./taffybar.nix
-    ./alacritty.nix
-    ./firefox.nix
     ./ssh.nix
+    ./taffybar.nix
+    ./xresources.nix
+    ./xsession
   ];
   
   services.xscreensaver.enable = true;
