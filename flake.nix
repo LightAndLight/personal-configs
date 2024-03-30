@@ -24,42 +24,27 @@
       flake = false;
     };
   };
-  outputs =
-    { 
-      self, nixpkgs, home-manager,
-      gruvbox-contrib,
-      spacemacs,
-      spacemacs-neuron,
-      theme-bobthefish
-    }:
-    {
-      nixosConfigurations.isaac-nixos-desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          ({ config, ... }: {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                projectRoot = ./.;
-                settings = config.settings;
-                inputs = {
-                  inherit
-                    gruvbox-contrib
-                    spacemacs
-                    spacemacs-neuron
-                    theme-bobthefish
-                  ;
-                };
-              };
-          })
-        
-          ./machines/desktop
-          ./system
-          ./users/isaac
-          # Disabled to debug slow build times
-          # ./users/work
-        ];
-      };    
-    };
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+    nixosConfigurations.isaac-nixos-desktop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        home-manager.nixosModules.home-manager
+        ({ config, ... }: {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              projectRoot = ./.;
+              settings = config.settings;
+              inherit inputs;
+            };
+        })
+      
+        ./machines/desktop
+        ./system
+        ./users/isaac
+        # Disabled to debug slow build times
+        # ./users/work
+      ];
+    };    
+  };
 }
