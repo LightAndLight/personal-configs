@@ -5,6 +5,6 @@
     ./packages.nix
     ./settings.nix
     ./sound.nix
-    ./xserver.nix    
+    ./xserver
   ];
 }
