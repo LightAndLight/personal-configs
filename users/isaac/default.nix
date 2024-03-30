@@ -8,7 +8,7 @@
 
   home-manager.users.isaac = { projectRoot, ... }: {
     imports = [
-      (projectRoot + /home.nix)
+      (projectRoot + /home)
     ];
 
     programs.git = {

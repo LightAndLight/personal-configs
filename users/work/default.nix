@@ -8,7 +8,7 @@
 
   home-manager.users.work = { projectRoot, ... }: {
     imports = [
-      (projectRoot + /home.nix)
+      (projectRoot + /home)
       ./profiles/inactive.nix
     ];
   };
