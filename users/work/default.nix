@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ projectRoot, config, pkgs, ... }: {
   users.users.work = {
     isNormalUser = true;
     shell = pkgs.fish;
@@ -6,8 +6,10 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
-  home-manager.users.work = pkgs.lib.mkMerge ([
-    (import ../../home.nix { settings = config.settings; })
-    (import ./profiles/inactive.nix)
-  ]);
+  home-manager.users.work = { projectRoot, ... }: {
+    imports = [
+      (projectRoot + /home.nix)
+      ./profiles/inactive.nix
+    ];
+  };
 }

@@ -9,10 +9,14 @@
       system = "x86_64-linux";
       modules = [
         home-manager.nixosModules.home-manager
-        {
+        ({ config, ... }: {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-        }
+            home-manager.extraSpecialArgs = {
+              projectRoot = ./.;
+              settings = config.settings;
+            };
+        })
         
         ./machines/desktop
 
