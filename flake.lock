@@ -60,7 +60,8 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "spacemacs": "spacemacs",
-        "spacemacs-neuron": "spacemacs-neuron"
+        "spacemacs-neuron": "spacemacs-neuron",
+        "theme-bobthefish": "theme-bobthefish"
       }
     },
     "spacemacs": {
@@ -94,6 +95,23 @@
         "owner": "LightAndLight",
         "repo": "spacemacs-neuron",
         "rev": "3750b3e7793f50e11ffac3aa0425a56fc279d5ab",
+        "type": "github"
+      }
+    },
+    "theme-bobthefish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1643872551,
+        "narHash": "sha256-whTAO4ZxglCr9vm/WXJItwnVoHZYG3qKh9rYWF5dhaE=",
+        "owner": "oh-my-fish",
+        "repo": "theme-bobthefish",
+        "rev": "1eaed8c39951029fa7839859abd5518977a80f83",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oh-my-fish",
+        "repo": "theme-bobthefish",
+        "rev": "1eaed8c39951029fa7839859abd5518977a80f83",
         "type": "github"
       }
     }

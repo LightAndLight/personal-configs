@@ -18,33 +18,48 @@
       url = "github:LightAndLight/spacemacs-neuron?rev=3750b3e7793f50e11ffac3aa0425a56fc279d5ab";
       flake = false;
     };
+
+    theme-bobthefish = {
+      url = "github:oh-my-fish/theme-bobthefish?rev=1eaed8c39951029fa7839859abd5518977a80f83";
+      flake = false;
+    };
   };
-  outputs = { self, nixpkgs, home-manager, gruvbox-contrib, spacemacs, spacemacs-neuron }: {
-    nixosConfigurations.isaac-nixos-desktop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        home-manager.nixosModules.home-manager
-        ({ config, ... }: {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              projectRoot = ./.;
-              settings = config.settings;
-              inputs = {
-                inherit
-                  gruvbox-contrib
-                  spacemacs
-                  spacemacs-neuron;
+  outputs =
+    { 
+      self, nixpkgs, home-manager,
+      gruvbox-contrib,
+      spacemacs,
+      spacemacs-neuron,
+      theme-bobthefish
+    }:
+    {
+      nixosConfigurations.isaac-nixos-desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          ({ config, ... }: {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                projectRoot = ./.;
+                settings = config.settings;
+                inputs = {
+                  inherit
+                    gruvbox-contrib
+                    spacemacs
+                    spacemacs-neuron
+                    theme-bobthefish
+                  ;
+                };
               };
-            };
-        })
+          })
         
-        ./machines/desktop
-        ./system
-        ./users/isaac
-        # Disabled to debug slow build times
-        # ./users/work
-      ];
-    };    
-  };
+          ./machines/desktop
+          ./system
+          ./users/isaac
+          # Disabled to debug slow build times
+          # ./users/work
+        ];
+      };    
+    };
 }
