@@ -8,8 +8,4 @@
     ./xserver.nix
     ./settings.nix
   ];
-
-  config = {
-    hardware.keyboard.zsa.enable = true;
-  };
 }

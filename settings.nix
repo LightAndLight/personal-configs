@@ -12,10 +12,17 @@
        default = 284;
        description = "xresources DPI";
       };
+
+      ergodox = mkOption {
+       type = types.bool;
+       default = true;
+       description = "Whether or not I'm using my Ergodox EZ";
+      };
     };
   };
 
   config = {
     services.upower.enable = config.settings.isLaptop;
+    hardware.keyboard.zsa.enable = config.settings.ergodox;
   };
 }
