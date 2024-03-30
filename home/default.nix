@@ -3,19 +3,8 @@
     ./fish.nix
     ./git.nix
     ./helix.nix
+    ./xsession
   ];
-
-  xsession = {
-    enable = true;
-    windowManager.xmonad = {
-      enable = true;
-      config = ./files/xmonad.hs;
-      enableContribAndExtras = true;
-    };
-    initExtra = with pkgs; ''
-      ${xorg.xset}/bin/xset -b
-    '';
-  };
 
   home.pointerCursor = {
     x11.enable = false;
