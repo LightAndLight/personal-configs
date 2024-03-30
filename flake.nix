@@ -10,7 +10,7 @@
     };
 
     spacemacs = {
-      url = "github:syl20bnr/spacemacs?rev=6774f37fc1c542fab664f1b65931e52a4991d71a";
+      url = "github:syl20bnr/spacemacs?ref=develop";
       flake = false;
     };
 
