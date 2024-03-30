@@ -28,31 +28,42 @@
       url = "github:powerline/fonts?rev=e80e3eba9091dac0655a0a77472e10f53e754bb0";
       flake = false;
     };
+
+    columnize.url = "github:LightAndLight/columnize";
   };
+  
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations.isaac-nixos-desktop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-      };
-      modules = [
-        home-manager.nixosModules.home-manager
-        ({ config, ... }: {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              projectRoot = ./.;
-              settings = config.settings;
-              inherit inputs;
-            };
-        })
+    nixosConfigurations.isaac-nixos-desktop =
+      let system = "x86_64-linux"; in
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit
+            system
+            inputs
+          ;
+        };
+        modules = [
+          home-manager.nixosModules.home-manager
+          ({ config, ... }: {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                projectRoot = ./.;
+                settings = config.settings;
+                inherit
+                  system
+                  inputs
+                ;
+              };
+          })
       
-        ./machines/desktop
-        ./system
-        ./users/isaac
-        # Disabled to debug slow build times
-        # ./users/work
-      ];
-    };    
+          ./machines/desktop
+          ./system
+          ./users/isaac
+          # Disabled to debug slow build times
+          # ./users/work
+        ];
+      };    
   };
 }

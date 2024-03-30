@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ system, inputs, pkgs, ... }: {
   programs.fish = {
     enable = true;
 
@@ -18,9 +18,9 @@
       cd = ''
         builtin cd $argv
 
-        set listed "$(ls --classify=always | head -n 20)"
+        set listed "$(ls --color=always --classify=always | head -n 20)"
 
-        echo "$(echo $listed | column -c 120)";
+        echo "$(echo $listed | ${inputs.columnize.packages.${system}.default}/bin/columnize)";
 
         set listedCount (echo $listed | wc -l)
         set total (ls | wc -l)
