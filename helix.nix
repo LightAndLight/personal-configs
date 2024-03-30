@@ -2,19 +2,18 @@
   programs.helix = {
     enable = true;
     settings.theme = "gruvbox";
-    # requires 23.03
-    # settings.editor.soft-wrap.enable = true;
-    settings.editor.cursor-shape = {
-      insert = "bar";
-      select = "underline";
-    };
-    settings.editor.file-picker.hidden = false;
-    # requires 23.03?
-    # settings.editor.text-width = 100;
-    settings.editor.lsp = {
-      display-messages = true;
-      # requires 23.03
-      # display-inlay-hints = true;
+    settings.editor = {
+      soft-wrap = {
+        enable = true;
+        max-wrap = 0;
+      };
+      cursor-shape = {
+        insert = "bar";
+        select = "underline";
+      };
+      file-picker.hidden = false;
+      text-width = 100;
+      lsp.display-messages = true;
     };
     settings.keys = {
       select = {
