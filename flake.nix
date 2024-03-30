@@ -15,8 +15,12 @@
         }
         
         ./machines/desktop
+
+        ./users/isaac
+        # Disabled to debug slow build times
+        # ./users/work
+
         ./fonts.nix
-        ./home.nix
         ./packages.nix
         ./xserver.nix
         ./settings.nix

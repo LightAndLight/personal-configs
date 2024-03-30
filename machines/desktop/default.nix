@@ -37,10 +37,6 @@
   services.gnome.gnome-keyring.enable = true;
 
   virtualisation.docker.enable = true;
-  users.users = {
-    isaac.extraGroups = [ "docker" ];
-    work.extraGroups = [ "docker" ];
-  };
   
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
