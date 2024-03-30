@@ -7,7 +7,7 @@
   };
 
   home-manager.users.isaac = pkgs.lib.mkMerge [
-    (import ../../profiles/common.nix { settings = config.settings; })
+    (import ../../home.nix { settings = config.settings; })
     (import ../../profiles/personal.nix)
   ];
 }

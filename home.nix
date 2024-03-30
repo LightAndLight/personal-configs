@@ -1,16 +1,16 @@
 { settings }:
 { config, pkgs, ... }: {
   imports = [
-    ../fish.nix
-    ../git.nix
-    ../helix.nix
+    ./fish.nix
+    ./git.nix
+    ./helix.nix
   ];
 
   xsession = {
     enable = true;
     windowManager.xmonad = {
       enable = true;
-      config = ../files/xmonad.hs;
+      config = ./files/xmonad.hs;
       enableContribAndExtras = true;
     };
     initExtra = with pkgs; ''
@@ -78,7 +78,7 @@
     };
   };
   home.file.".spacemacs" = {
-    source = ../files/spacemacs;
+    source = ./files/spacemacs;
   };
 
   programs.direnv = {

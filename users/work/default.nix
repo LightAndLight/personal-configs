@@ -7,6 +7,6 @@
   };
 
   home-manager.users.work = pkgs.lib.mkMerge [
-    (import ../../profiles/common.nix { settings = config.settings; })
+    (import ../../home.nix { settings = config.settings; })
   ];
 }
