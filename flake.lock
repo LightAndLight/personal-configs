@@ -58,7 +58,43 @@
       "inputs": {
         "gruvbox-contrib": "gruvbox-contrib",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "spacemacs": "spacemacs",
+        "spacemacs-neuron": "spacemacs-neuron"
+      }
+    },
+    "spacemacs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1649010041,
+        "narHash": "sha256-KmBHSF9V4Uhbx5CGbrx0kRVUrX92bO2DcnUL6Pynn8w=",
+        "owner": "syl20bnr",
+        "repo": "spacemacs",
+        "rev": "6774f37fc1c542fab664f1b65931e52a4991d71a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "syl20bnr",
+        "repo": "spacemacs",
+        "rev": "6774f37fc1c542fab664f1b65931e52a4991d71a",
+        "type": "github"
+      }
+    },
+    "spacemacs-neuron": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1625380284,
+        "narHash": "sha256-brUjrxQ0Cpx0509oCLB9OJqfSaguJVjxqCVFifW4xbk=",
+        "owner": "LightAndLight",
+        "repo": "spacemacs-neuron",
+        "rev": "3750b3e7793f50e11ffac3aa0425a56fc279d5ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LightAndLight",
+        "repo": "spacemacs-neuron",
+        "rev": "3750b3e7793f50e11ffac3aa0425a56fc279d5ab",
+        "type": "github"
       }
     }
   },
