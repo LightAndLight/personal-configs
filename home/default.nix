@@ -1,112 +1,22 @@
-{ settings, inputs, config, pkgs, ... }: {
+{
   imports = [
     ./fish.nix
     ./git.nix
     ./helix.nix
     ./xsession
     ./emacs
+    ./xresources.nix
+    ./taffybar.nix
+    ./alacritty.nix
+    ./firefox.nix
+    ./ssh.nix
   ];
-
-  home.pointerCursor = {
-    x11.enable = false;
-    name = "Vanilla-DMZ";
-    package = pkgs.vanilla-dmz;
-    size = 32;
-  };
-
-  services.status-notifier-watcher.enable = true;
-  services.taffybar = {
-    enable = true;
-  };
+  
   services.xscreensaver.enable = true;
-
-  xresources = {
-    properties = {
-      "xterm*faceName" = "DejaVu Sans Mono for Powerline:size=12:antialias=true";
-      "URxvt.font" = "xft:DejaVu Sans Mono for Powerline:size=12:antialias=true";
-      "URxvt.scrollBar" = "false";
-      "Xft.dpi" = settings.dpi;
-      "Xft.antialias" = "1";
-      "Xcursor.theme" = config.home.pointerCursor.name;
-      "Xcursor.size" = config.home.pointerCursor.size;
-    };
-    extraConfig =
-      builtins.readFile "${inputs.gruvbox-contrib}/xresources/gruvbox-dark.xresources";
-  };
 
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
-  };
-
-  programs.firefox = {
-    enable = true;
-    profiles.isaac = {
-      settings = {
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-      };
-      userChrome = ''
-      #TabsToolbar { visibility: collapse; }
-      '';
-    };
-  };
-
-  programs.ssh = {
-    enable = true;
-    controlPersist = "60m";
-    controlMaster = "auto";
-    controlPath = "~/.ssh/%u@%l-%r@%h:%p.sock";
-    matchBlocks."github.com" = {
-      identityFile = "${config.home.homeDirectory}/.ssh/id_ed25519";
-      extraOptions.PreferredAuthentications = "publickey";
-    };
-  };
-
-  # Without this, Taffybar crashes when launching Alacritty.
-  #
-  # See:
-  #
-  # * https://github.com/taffybar/taffybar/issues/332#issuecomment-722998632
-  # * https://github.com/taffybar/taffybar/issues/332#issuecomment-723000490
-  home.sessionVariables.GDK_PIXBUF_MODULE_FILE = "${pkgs.librsvg.out}/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache";
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      draw_bold_text_with_bright_colors = true;
-
-      font = {
-        size = 12.0;
-        normal.family = "DejaVu Sans Mono for Powerline";
-      };
-
-      # Gruvbox Dark
-      colors = {
-        primary = {
-          background = "0x282828";
-          foreground = "0xebdbb2";
-        };
-        normal = {
-          black = "0x282828";
-          red = "0xcc241d";
-          green = "0x98971a";
-          yellow = "0xd79921";
-          blue = "0x458588";
-          magenta = "0xb16286";
-          cyan = "0x689d6a";
-          white = "0xa89984";
-        };
-        bright = {
-          black = "0x928374";
-          red = "0xfb4934";
-          green = "0xb8bb26";
-          yellow = "0xfabd2f";
-          blue = "0x83a598";
-          magenta = "0xd3869b";
-          cyan = "0x8ec07c";
-          white = "0xebdbb2";
-        };
-      };
-    };
   };
 
   home.stateVersion = "22.11";
