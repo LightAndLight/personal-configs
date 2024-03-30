@@ -6,7 +6,8 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
-  home-manager.users.work = pkgs.lib.mkMerge [
+  home-manager.users.work = pkgs.lib.mkMerge ([
     (import ../../home.nix { settings = config.settings; })
-  ];
+    (import ./profiles/inactive.nix)
+  ]);
 }
