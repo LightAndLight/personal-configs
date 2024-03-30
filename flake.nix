@@ -7,7 +7,11 @@
       system = "x86_64-linux";
       modules = [
         ./machines/desktop
-        ./default.nix
+        ./fonts.nix
+        ./home.nix
+        ./packages.nix
+        ./xserver.nix
+        ./settings.nix
       ];
     };    
   };
