@@ -8,6 +8,12 @@
 
   home-manager.users.isaac = pkgs.lib.mkMerge [
     (import ../../home.nix { settings = config.settings; })
-    (import ../../profiles/personal.nix)
+    {
+      programs.git = {
+        enable = true;
+        userName = "Isaac Elliott";
+        userEmail = "isaace71295@gmail.com";
+      };      
+    }
   ];
 }
