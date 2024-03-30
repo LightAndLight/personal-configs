@@ -1,4 +1,4 @@
-{ settings, config, pkgs, ... }: {
+{ settings, inputs, config, pkgs, ... }: {
   imports = [
     ./fish.nix
     ./git.nix
@@ -31,18 +31,7 @@
       "Xcursor.size" = config.home.pointerCursor.size;
     };
     extraConfig =
-      let
-        gruvbox-contrib =
-          pkgs.fetchFromGitHub {
-            owner = "morhetz";
-            repo = "gruvbox-contrib";
-            rev = "edb3ee5f626cdfb250d5ab42c1f5ccb9f8050514";
-            sha256 = "0n32s5var4xxwk3bwm70mwja0gy6vaj2awm6kji10yw3fpqgg7yh";
-          };
-      in
-        builtins.readFile (
-          "${gruvbox-contrib}/xresources/gruvbox-dark.xresources"
-        );
+      builtins.readFile "${inputs.gruvbox-contrib}/xresources/gruvbox-dark.xresources";
   };
 
   programs.direnv = {

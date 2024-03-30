@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "gruvbox-contrib": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1526470161,
+        "narHash": "sha256-0J/38HWDexCinKZyJaTaxj+gJK/gVL7G5L2TrHbRYlg=",
+        "owner": "morhetz",
+        "repo": "gruvbox-contrib",
+        "rev": "edb3ee5f626cdfb250d5ab42c1f5ccb9f8050514",
+        "type": "github"
+      },
+      "original": {
+        "owner": "morhetz",
+        "repo": "gruvbox-contrib",
+        "rev": "edb3ee5f626cdfb250d5ab42c1f5ccb9f8050514",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -39,6 +56,7 @@
     },
     "root": {
       "inputs": {
+        "gruvbox-contrib": "gruvbox-contrib",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }
