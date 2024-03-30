@@ -23,10 +23,18 @@
       url = "github:oh-my-fish/theme-bobthefish?rev=1eaed8c39951029fa7839859abd5518977a80f83";
       flake = false;
     };
+
+    powerline-fonts-src = {
+      url = "github:powerline/fonts?rev=e80e3eba9091dac0655a0a77472e10f53e754bb0";
+      flake = false;
+    };
   };
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations.isaac-nixos-desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
       modules = [
         home-manager.nixosModules.home-manager
         ({ config, ... }: {

@@ -54,11 +54,29 @@
         "type": "github"
       }
     },
+    "powerline-fonts-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1541938950,
+        "narHash": "sha256-GGfON6Z/0czCUAGxnqtndgDnaZGONFTU9/Hu4BGDHlk=",
+        "owner": "powerline",
+        "repo": "fonts",
+        "rev": "e80e3eba9091dac0655a0a77472e10f53e754bb0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "powerline",
+        "repo": "fonts",
+        "rev": "e80e3eba9091dac0655a0a77472e10f53e754bb0",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "gruvbox-contrib": "gruvbox-contrib",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "powerline-fonts-src": "powerline-fonts-src",
         "spacemacs": "spacemacs",
         "spacemacs-neuron": "spacemacs-neuron",
         "theme-bobthefish": "theme-bobthefish"
