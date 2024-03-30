@@ -3,10 +3,6 @@ let
   common = import ./profiles/common.nix { settings = config.settings; };
 in
 {
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  environment.systemPackages = [ pkgs.pavucontrol ];
-
   users.users.isaac = {
     isNormalUser = true;
     shell = pkgs.fish;
