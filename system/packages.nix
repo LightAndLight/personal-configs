@@ -10,7 +10,7 @@
     neovim vscode
 
     # Display
-    arandr scrot
+    arandr scrot gimp
 
     # Misc. tools
     man-pages
@@ -22,6 +22,8 @@
     nix-prefetch-git
     xclip
     moreutils
+
+    chromium
 
     wally-cli
 
