@@ -161,6 +161,8 @@ in
           git st
         '';
 
+        chn = "checkout -b";
+
         d = "diff";
 
         ds = "diff --cached";
