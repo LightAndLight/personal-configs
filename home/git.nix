@@ -104,6 +104,14 @@ in
           echo "$committed"
         '';
 
+        coe = aliasCommand "coe" ''
+          #! /usr/bin/env bash
+          set -e
+
+          git commit -q --allow-empty -m "$@"
+          git st
+        '';
+
         com = "co -m";
 
         ch = aliasCommand "ch" ''
@@ -207,14 +215,6 @@ in
               --abbrev-commit \
               "$@"
           fi
-        '';
-
-        nco = aliasCommand "nco" ''
-          #! /usr/bin/env bash
-          set -e
-
-          git commit -q --allow-empty "$@"
-          git st
         '';
 
         p = "push";
