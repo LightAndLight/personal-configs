@@ -177,18 +177,19 @@ in
 
         l = aliasCommand "l" ''
           #! /usr/bin/env bash
+          FORMAT_STRING='%C(yellow)%h%Creset - %<(65,trunc)%s %Cgreen(%cr)%C(bold blue)%<(50,trunc)%d%Creset'
 
           if [ $# -eq 0 ]
           then
             DEFAULT_LIMIT=20
             git log \
-              --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr)%C(bold blue)%d%Creset' \
+              --pretty=format:"$FORMAT_STRING" \
               --abbrev-commit \
               -n "$DEFAULT_LIMIT"
             echo "($(git rev-list HEAD --count --max-count "$DEFAULT_LIMIT") of $(git rev-list HEAD --count) commits shown)"
           else
             git log \
-              --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr)%C(bold blue)%d%Creset' \
+              --pretty=format:"$FORMAT_STRING" \
               --abbrev-commit \
               "$@"
           fi
