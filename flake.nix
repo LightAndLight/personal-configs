@@ -31,7 +31,7 @@
 
     columnize.url = "github:LightAndLight/columnize";
   };
-  
+
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations.isaac-nixos-desktop =
       let system = "x86_64-linux"; in
@@ -57,13 +57,44 @@
                 ;
               };
           })
-      
+
           ./machines/desktop
           ./system
           ./users/isaac
           # Disabled to debug slow build times
           # ./users/work
         ];
-      };    
+      };
+
+    nixosConfigurations.isaac-nixos-thinkpad =
+      let system = "x86_64-linux"; in
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit
+            system
+            inputs
+          ;
+        };
+        modules = [
+          home-manager.nixosModules.home-manager
+          ({ config, ... }: {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                projectRoot = ./.;
+                settings = config.settings;
+                inherit
+                  system
+                  inputs
+                ;
+              };
+          })
+
+          ./machines/thinkpad
+          ./system
+          ./users/isaac
+        ];
+      };
   };
 }
