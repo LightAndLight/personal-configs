@@ -24,5 +24,6 @@
   config = {
     services.upower.enable = config.settings.isLaptop;
     hardware.keyboard.zsa.enable = config.settings.ergodox;
+    environment.systemPackages = pkgs.lib.mkIf config.settings.isLaptop [pkgs.brightnessctl];
   };
 }
