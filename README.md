@@ -1,7 +1,3 @@
 # `personal-configs`
 
-## Installation
-
-```
-$ sudo nixos-rebuild switch --flake .
-```
+Run `./switch` to update.
