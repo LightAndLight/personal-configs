@@ -336,7 +336,7 @@ in
 
           echo ""
 
-          git l
+          git lg @ @{u} -n 20
         '';
 
         st = aliasCommand "st" ''
