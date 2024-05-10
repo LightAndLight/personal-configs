@@ -219,7 +219,15 @@ in
           fi
         '';
 
-        p = "push";
+        p = aliasCommand "p" ''
+          #! /usr/bin/env bash
+          set -e
+
+          git push "$@"
+
+          echo ""
+          git st
+        '';
 
         pf = "push -f";
 
