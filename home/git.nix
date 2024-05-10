@@ -372,7 +372,7 @@ in
         spush = aliasCommand "spush" ''
           #! /usr/bin/env bash
 
-          git stash push -q && git st
+          git stash push -q "$@" && git st
         '';
 
         undo = aliasCommand "undo" ''
