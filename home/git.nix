@@ -69,7 +69,7 @@ in
           fi
 
           git commit -q -m "fixup! $base"
-          git -c core.editor=true rebase -i --autosquash "$base~1"
+          git -c core.editor=true rebase -i --autostash --autosquash "$base~1"
 
           echo ""
 
