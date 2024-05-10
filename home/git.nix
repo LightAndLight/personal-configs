@@ -268,7 +268,7 @@ in
           #! /usr/bin/env bash
           set -e
 
-          git rebase "$@"
+          git rebase --autostash "$@"
 
           echo ""
           git lg @ @{u} -n 20
