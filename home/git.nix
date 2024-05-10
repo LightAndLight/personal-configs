@@ -17,6 +17,7 @@ in
       };
       pull = {
         rebase = false;
+        ff = "only";
       };
       push = {
         default = "current";
