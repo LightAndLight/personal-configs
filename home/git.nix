@@ -229,6 +229,16 @@ in
           git st
         '';
 
+        pa = aliasCommand "pa" ''
+          #! /usr/bin/env bash
+          set -e
+
+          git push --all "$@"
+
+          echo ""
+          git st
+        '';
+
         pf = aliasCommand "pf" ''
           #! /usr/bin/env bash
           set -e
