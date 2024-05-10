@@ -197,7 +197,13 @@ in
           fi
         '';
 
-        f = "fetch";
+        f = aliasCommand "f" ''
+          #! /usr/bin/env bash
+          set -e
+
+          git fetch
+          git lg @ @{u} -n 20
+        '';
 
         lg = aliasCommand "lg" ''
           #! /usr/bin/env bash
