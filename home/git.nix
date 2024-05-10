@@ -264,7 +264,7 @@ in
           git rebase "$@"
 
           echo ""
-          git l
+          git lg @ @{u} -n 20
         '';
 
         rei = aliasCommand "rei" ''
