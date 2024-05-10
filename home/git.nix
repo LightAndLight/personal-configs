@@ -332,7 +332,7 @@ in
           fi
 
           git commit -q --fixup=reword:"$base"
-          git -c core.editor=true rebase -i --autosquash "$base~1"
+          git -c core.editor=true rebase -i --autostash --autosquash "$base~1"
 
           echo ""
 
