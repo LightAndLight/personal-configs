@@ -8,6 +8,7 @@ in
     lfs.enable = true;
     userName = "Isaac Elliott";
     extraConfig = {
+      advice.skippedCherryPicks = false;
       core = {
         editor = "hx";
       };
