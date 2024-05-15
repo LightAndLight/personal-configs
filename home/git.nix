@@ -124,8 +124,7 @@ in
           if [ $# -eq 0 ]
           then
             selection=$(git branch --color --list --all | \
-              ${pkgs.fzf}/bin/fzf -c \
-                fzf --ansi --layout=reverse-list --height=~100% --prompt="Select branch: " | \
+              ${pkgs.fzf}/bin/fzf --ansi --layout=reverse-list --height=~100% --prompt="Select branch: " | \
               sed "s/^\*\? *//"
             )
 
