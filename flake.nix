@@ -61,8 +61,7 @@
           ./machines/desktop
           ./system
           ./users/isaac
-          # Disabled to debug slow build times
-          # ./users/work
+          ./users/work
         ];
       };
 
