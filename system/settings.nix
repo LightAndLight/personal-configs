@@ -7,6 +7,12 @@
        description = "Enables laptop-related settings like battery levels and screen brightness";
       };
 
+      hiDPI = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Whether or not the display is high DPI. Used for setting application scaling.";
+      };
+
       dpi = mkOption {
        type = types.int;
        default = 284;

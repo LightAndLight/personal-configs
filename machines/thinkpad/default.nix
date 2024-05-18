@@ -26,6 +26,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   settings.isLaptop = true;
+  settings.hiDPI = false;
 
   # xrandr -q
   # 1920px x 1080px, 309mm x 173mm

@@ -29,7 +29,7 @@
 
     (spotify.override {
       # Scale up the UI for HiDPI displays.
-      deviceScaleFactor = 2.0;
+      deviceScaleFactor = if config.settings.hiDPI then 2.0 else 1.0;
     })
   ];
 }
