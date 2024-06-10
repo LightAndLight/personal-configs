@@ -31,5 +31,7 @@
       # Scale up the UI for HiDPI displays.
       deviceScaleFactor = if config.settings.hiDPI then 2.0 else 1.0;
     })
+
+    (pkgs.callPackage ./packages/scrap.nix {})
   ];
 }

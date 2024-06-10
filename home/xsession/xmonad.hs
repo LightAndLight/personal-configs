@@ -19,6 +19,8 @@ cfg =
   }
   `additionalKeys`
   [ ((mod4Mask, xK_Return), spawn "alacritty")
+  -- `scrap` is a screen capture script, defined elsewhere in this repo.
+  , ((mod4Mask, xK_s), spawn "scrap")
   , ((mod4Mask .|. controlMask, xK_l), spawn "xscreensaver-command -lock")
   , ((mod4Mask, xK_h), sendMessage $ Go L)
   , ((mod4Mask, xK_j), sendMessage $ Go D)
