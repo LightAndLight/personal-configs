@@ -40,14 +40,19 @@
 
   time.timeZone = "Australia/Brisbane";
 
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_TIME = "en_GB.UTF-8";
+    };
+  };
+
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.eno2.useDHCP = true;
   networking.interfaces.wlo1.useDHCP = true;
-
-  i18n.defaultLocale = "en_US.UTF-8";
   
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
