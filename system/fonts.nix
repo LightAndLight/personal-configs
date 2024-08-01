@@ -11,5 +11,8 @@
         cp DejaVuSansMono/*.ttf "$out/share/fonts/truetype/"
       '';
     })
+
+    # Supports powerline by default.
+    hack-font
   ];
 }

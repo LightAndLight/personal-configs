@@ -9,8 +9,8 @@
 
   xresources = {
     properties = {
-      "xterm*faceName" = "DejaVu Sans Mono for Powerline:size=12:antialias=true";
-      "URxvt.font" = "xft:DejaVu Sans Mono for Powerline:size=12:antialias=true";
+      "xterm*faceName" = "Hack:size=12:antialias=true";
+      "URxvt.font" = "xft:Hack:size=12:antialias=true";
       "URxvt.scrollBar" = "false";
       "Xft.dpi" = settings.dpi;
       "Xft.antialias" = "1";

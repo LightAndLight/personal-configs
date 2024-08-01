@@ -6,7 +6,7 @@
 
       font = {
         size = 12.0;
-        normal.family = "DejaVu Sans Mono for Powerline";
+        normal.family = "Hack";
       };
 
       # Gruvbox Dark
