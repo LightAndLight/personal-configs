@@ -4,6 +4,7 @@
   services.taffybar.enable = true;
 
   home.file.".config/taffybar/taffybar.css".source = ./taffybar.css;
+  home.file.".config/taffybar/taffybar.hs".source = ./taffybar.hs;
   
   # Without this, Taffybar crashes when launching Alacritty.
   #
