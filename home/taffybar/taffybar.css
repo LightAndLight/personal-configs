@@ -1,8 +1,8 @@
 /* Original: https://github.com/taffybar/taffybar/blob/master/taffybar.css */
 
 @define-color transparent rgba(0, 0, 0, 0.0);
-@define-color white #FFFFFF;
-@define-color black #000000;
+@define-color white #ebdbb2;
+@define-color black #1d2021;
 @define-color taffy-blue #0c7cd5;
 
 @define-color active-window-color @white;
@@ -26,8 +26,7 @@
 }
 
 .taffy-box {
-	border-radius: 10px;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: @black;
 }
 
 .inner-pad {
