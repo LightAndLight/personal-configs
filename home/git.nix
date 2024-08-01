@@ -290,9 +290,9 @@ in
               | ${pkgs.coreutils}/bin/cut -d " " -f 1 -
             )
 
-            git rebase -i "$base"
+            git rebase --autostash -i "$base"
           else
-            git rebase -i "$@"
+            git rebase --autostash -i "$@"
           fi
 
           echo ""
