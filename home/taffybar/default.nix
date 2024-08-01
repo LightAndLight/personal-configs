@@ -2,6 +2,8 @@
 {
   services.status-notifier-watcher.enable = true;
   services.taffybar.enable = true;
+
+  home.file.".config/taffybar/taffybar.css".source = ./taffybar.css;
   
   # Without this, Taffybar crashes when launching Alacritty.
   #

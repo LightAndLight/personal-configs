@@ -7,7 +7,7 @@
     ./git.nix
     ./helix.nix
     ./ssh.nix
-    ./taffybar.nix
+    ./taffybar
     ./xresources.nix
     ./xsession
   ];
