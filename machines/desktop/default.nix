@@ -30,6 +30,8 @@
   nixpkgs.config.allowUnfree = true;
   hardware.opengl.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+  # Stops my monitor from disconnecting when I log out / quit Xmonad.
+  hardware.nvidia.nvidiaPersistenced = true;
 
   services.dbus.packages = [ pkgs.dconf ];
 
