@@ -273,6 +273,16 @@ in
           git lg @ @{u} -n 20
         '';
 
+        "rec" = aliasCommand "rec" ''
+          #! /usr/bin/env bash
+          set -e
+
+          git rebase --continue
+
+          echo ""
+          git lg @ @{u} -n 20
+        '';
+
         rei = aliasCommand "rei" ''
           #! /usr/bin/env bash
           set -euo pipefail
