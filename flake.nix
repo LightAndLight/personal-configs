@@ -30,6 +30,8 @@
     };
 
     columnize.url = "github:LightAndLight/columnize";
+
+    xeval.url = "github:LightAndLight/xeval";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {

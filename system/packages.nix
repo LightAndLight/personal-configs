@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, system, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -33,5 +33,6 @@
     })
 
     (pkgs.callPackage ./packages/scrap.nix {})
+    inputs.xeval.packages.${system}.default
   ];
 }

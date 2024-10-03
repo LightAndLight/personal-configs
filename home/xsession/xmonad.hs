@@ -29,6 +29,7 @@ main =
     , ((mod4Mask, xK_p), spawn "exe=`dmenu_path | dmenu -fn Hack -nb '#282828' -nf '#ebdbb2' -sb '#458588' -sf '#ebdbb2' -i` && exec $exe")
     -- `scrap` is a screen capture script, defined elsewhere in this repo.
     , ((mod4Mask, xK_s), spawn "scrap")
+    , ((mod4Mask, xK_e), spawn "xeval")
     , ((mod4Mask .|. controlMask, xK_l), spawn "xscreensaver-command -lock")
     , ((mod4Mask, xK_h), sendMessage $ Go L)
     , ((mod4Mask, xK_j), sendMessage $ Go D)
