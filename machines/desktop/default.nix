@@ -3,22 +3,13 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../system/substituters.nix
     ];
 
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    settings.substituters = [
-      "https://cache.nixos.org/"
-      "https://nixcache.reflex-frp.org"
-      "https://uptrust.cache.smithy.build"
-    ];
-    settings.trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
-      "smithy-uptrust-1:hPyLtJbpoWoF9cg8MNhFQdPkLYvBOz1RX6u2X2On5Kg="
-    ];
   };
   
   networking.hostName = "isaac-nixos-desktop";

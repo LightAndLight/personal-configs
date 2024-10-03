@@ -1,2 +1,8 @@
 #! /usr/bin/env sh
-sudo nixos-rebuild switch --flake . --option substituters https://cache.nixos.org
+
+# The `path:` prefix stops Nix from using .gitignore to filter.
+# I need to avoid committing `system/private-substituters.nix`, which may reference binary
+# caches that I don't want to publicly announce.
+sudo nixos-rebuild switch \
+  --flake path:. \
+  --option substituters https://cache.nixos.org
