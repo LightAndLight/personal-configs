@@ -2,7 +2,7 @@
   imports = [
     ./alacritty.nix
     ./emacs
-    ./firefox.nix
+    ./firefox
     ./fish.nix
     ./git.nix
     ./helix.nix

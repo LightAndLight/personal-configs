@@ -18,15 +18,9 @@
   programs.firefox = {
     enable = true;
     profiles.isaac.isDefault = false;
-    profiles.work = {
+    profiles.work = (import ../../../home/firefox/profile.nix) // {
       id = 1;
       isDefault = true;
-      settings = {
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-      };
-      userChrome = ''
-      #TabsToolbar { visibility: collapse; }
-      '';
     };
   };
 }
