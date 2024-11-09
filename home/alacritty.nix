@@ -2,7 +2,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      draw_bold_text_with_bright_colors = true;
+      colors.draw_bold_text_with_bright_colors = true;
 
       font = {
         size = 12.0;

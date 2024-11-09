@@ -1,21 +1,19 @@
 { ... }:
 
 {
+  services.displayManager.defaultSession = "xterm";
+  services.libinput.enable = false;
   services.xserver = {
     enable = true;
-    layout = "us";
-    libinput.enable = false;
+    xkb.layout = "us";
     synaptics.enable = true;
     desktopManager = {
       xterm.enable = true;
     };
-    displayManager = {
-      defaultSession = "xterm";
-      lightdm = {
-        enable = true;
-        # Generated using https://github.com/lunik1/nix-wallpaper
-        background = ./nix-wallpaper.png;
-      };
+    displayManager.lightdm = {
+      enable = true;
+      # Generated using https://github.com/lunik1/nix-wallpaper
+      background = ./nix-wallpaper.png;
     };
   };
 }
