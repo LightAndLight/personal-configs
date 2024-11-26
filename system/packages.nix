@@ -33,6 +33,7 @@
     })
 
     (pkgs.callPackage ./packages/scrap.nix {})
+    (pkgs.callPackage ./packages/slowly.nix {})
     inputs.xeval.packages.${system}.default
   ];
 }
