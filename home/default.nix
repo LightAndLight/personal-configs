@@ -6,8 +6,8 @@
     ./fish.nix
     ./git.nix
     ./helix.nix
+    ./polybar
     ./ssh.nix
-    ./taffybar
     ./xresources.nix
     ./xsession
   ];
