@@ -17,7 +17,7 @@ let
       url = "https://nixcache.reflex-frp.org";
       publicKey = "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=";
     }
-  ] ++ (import ./private-substituters.nix);
+  ] ++ (if builtins.pathExists ./private-substituters.nix then (import ./private-substituters.nix) else []);
 in
 {
   nix.settings = {
