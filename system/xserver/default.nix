@@ -2,11 +2,16 @@
 
 {
   services.displayManager.defaultSession = "xterm";
-  services.libinput.enable = false;
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      scrollMethod = "twofinger";
+      naturalScrolling = true;
+    };
+  };
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-    synaptics.enable = true;
     desktopManager = {
       xterm.enable = true;
     };
