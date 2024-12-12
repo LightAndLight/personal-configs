@@ -67,6 +67,38 @@
         ];
       };
 
+    nixosConfigurations.isaac-nixos-thinkpad-x1-carbon-gen12 =
+      let system = "x86_64-linux"; in
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit
+            system
+            inputs
+          ;
+        };
+        modules = [
+          home-manager.nixosModules.home-manager
+          ({ config, ... }: {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                projectRoot = ./.;
+                settings = config.settings;
+                inherit
+                  system
+                  inputs
+                ;
+              };
+          })
+
+          ./machines/thinkpad-x1-carbon-gen12
+          ./system
+          ./users/isaac
+          ./users/work
+        ];
+      };
+
     nixosConfigurations.isaac-nixos-thinkpad =
       let system = "x86_64-linux"; in
       nixpkgs.lib.nixosSystem {
