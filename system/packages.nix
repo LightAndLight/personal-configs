@@ -12,6 +12,12 @@
     # Display
     arandr scrot gimp
 
+    # Email
+    thunderbird
+
+    # System status
+    htop
+
     # Misc. tools
     man-pages
     tree

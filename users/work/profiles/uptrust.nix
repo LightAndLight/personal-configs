@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   programs.git = {
     userEmail = "isaac.elliott@uptrusthq.com";
   };
@@ -23,4 +23,8 @@
       isDefault = true;
     };
   };
+
+  home.packages = with pkgs; [
+    slack
+  ];
 }
