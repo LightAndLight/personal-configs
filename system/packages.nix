@@ -12,9 +12,6 @@
     # Display
     arandr scrot gimp
 
-    # Email
-    thunderbird
-
     # System status
     htop
 

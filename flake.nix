@@ -47,19 +47,6 @@
         };
         modules = [
           home-manager.nixosModules.home-manager
-          ({ config, ... }: {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                projectRoot = ./.;
-                settings = config.settings;
-                inherit
-                  system
-                  inputs
-                ;
-              };
-          })
-
           ./machines/desktop
           ./system
           ./users/isaac
@@ -79,19 +66,6 @@
         };
         modules = [
           home-manager.nixosModules.home-manager
-          ({ config, ... }: {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                projectRoot = ./.;
-                settings = config.settings;
-                inherit
-                  system
-                  inputs
-                ;
-              };
-          })
-
           ./machines/thinkpad-x1-carbon-gen12
           ./system
           ./users/isaac
@@ -111,19 +85,6 @@
         };
         modules = [
           home-manager.nixosModules.home-manager
-          ({ config, ... }: {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                projectRoot = ./.;
-                settings = config.settings;
-                inherit
-                  system
-                  inputs
-                ;
-              };
-          })
-
           ./machines/thinkpad
           ./system
           ./users/isaac

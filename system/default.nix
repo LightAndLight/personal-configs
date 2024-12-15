@@ -1,6 +1,7 @@
 {
   imports = [
     ./fonts.nix
+    ./home-manager.nix
     ./networking.nix
     ./packages.nix
     ./power.nix
