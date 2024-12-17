@@ -39,7 +39,7 @@
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
-  time.timeZone = "America/Chicago";
+  time.timeZone = "Australia/Brisbane";
 
   i18n.defaultLocale = "en_US.UTF-8";
 
