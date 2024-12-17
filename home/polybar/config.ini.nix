@@ -27,20 +27,23 @@ secondary = #83a598
 alert = #cc241d
 disabled = #a89984
 
+[global/wm]
+margin-top = 0
+margin-bottom = 10
+
 [bar/base]
 width = 100%
 height = 24pt
-radius = 6
 
 dpi = ${builtins.toString dpi}
 
 background = ''${colors.background}
 foreground = ''${colors.foreground}
 
-line-size = 3pt
+border-color = #00
+radius = 10
 
-border-size = 4pt
-border-color = #00000000
+line-size = 3pt
 
 module-margin = 1
 
@@ -57,6 +60,10 @@ enable-ipc = true
 [bar/top]
 inherit = bar/base
 
+border-top-size = 10
+border-left-size = 10
+border-right-size = 10
+
 padding-left = 0
 padding-right = 1
 
@@ -66,6 +73,10 @@ modules-right = date
 [bar/bottom]
 inherit = bar/base
 bottom = true
+
+border-bottom-size = 10
+border-left-size = 10
+border-right-size = 10
 
 padding-left = 1
 padding-right = 1
