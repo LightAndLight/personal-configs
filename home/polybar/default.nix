@@ -1,3 +1,4 @@
+{ osConfig, ... }:
 {
   services.polybar = {
     enable = true;
@@ -7,5 +8,7 @@
     '';
   };
 
-  home.file.".config/polybar/config.ini".source = ./config.ini;
+  home.file.".config/polybar/config.ini".text = import ./config.ini.nix {
+    dpi = osConfig.settings.dpi;
+  };
 }

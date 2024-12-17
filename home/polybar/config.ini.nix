@@ -1,3 +1,5 @@
+{ dpi }:
+''
 ;==========================================================
 ;
 ;
@@ -25,73 +27,51 @@ secondary = #83a598
 alert = #cc241d
 disabled = #a89984
 
-[bar/top]
+[bar/base]
 width = 100%
 height = 24pt
 radius = 6
 
-dpi = 144
+dpi = ${builtins.toString dpi}
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ''${colors.background}
+foreground = ''${colors.foreground}
 
 line-size = 3pt
 
 border-size = 4pt
 border-color = #00000000
+
+module-margin = 1
+
+separator = |
+separator-foreground = ''${colors.disabled}
+
+font-0 = Hack:size=12;2
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+
+[bar/top]
+inherit = bar/base
 
 padding-left = 0
 padding-right = 1
 
-module-margin = 1
-
-separator = |
-separator-foreground = ${colors.disabled}
-
-font-0 = Hack:size=12;2
-
 modules-left = xworkspaces xwindow
 modules-right = date
 
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-enable-ipc = true
-
 [bar/bottom]
+inherit = bar/base
 bottom = true
-
-width = 100%
-height = 24pt
-radius = 6
-
-dpi = 144
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3pt
-
-border-size = 4pt
-border-color = #00000000
 
 padding-left = 1
 padding-right = 1
 
-module-margin = 1
-
-separator = |
-separator-foreground = ${colors.disabled}
-
-font-0 = Hack:size=10;2
-
 modules-left = cpu memory network-wireless network-wired
 modules-right = battery
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-enable-ipc = true
 
 [module/battery]
 type = internal/battery
@@ -116,15 +96,15 @@ label-discharging = %percentage%% (%time% @ %consumption%W)
 type = internal/xworkspaces
 
 label-active = %name%
-label-active-background = ${colors.background-alt}
-label-active-underline = ${colors.primary}
+label-active-background = ''${colors.background-alt}
+label-active-underline = ''${colors.primary}
 label-active-padding = 1
 
 label-occupied = %name%
 label-occupied-padding = 1
 
 label-urgent = %name%
-label-urgent-background = ${colors.alert}
+label-urgent-background = ''${colors.alert}
 label-urgent-padding = 1
 
 label-empty =
@@ -137,7 +117,7 @@ label = %title:0:60:...%
 type = internal/memory
 interval = 2
 format-prefix = "RAM "
-format-prefix-foreground = ${colors.primary}
+format-prefix-foreground = ''${colors.primary}
 label = %percentage_used:2%%
 
 [module/cpu]
@@ -145,7 +125,7 @@ type = internal/cpu
 interval = 2
 format = <label> <ramp-coreload>
 format-prefix = "CPU "
-format-prefix-foreground = ${colors.primary}
+format-prefix-foreground = ''${colors.primary}
 label = %percentage-sum:4%%
 
 ramp-coreload-spacing = 0.1
@@ -158,36 +138,30 @@ ramp-coreload-5 = ▆
 ramp-coreload-6 = ▇
 ramp-coreload-7 = █
 
-[module/network-wireless]
+[module/network-base]
 type = internal/network
-interface-type = wireless
 interval = 5
 accumulate-stats = true
 
 format-connected = <label-connected>
 format-connected-prefix = "↓↑"
-format-connected-prefix-foreground = ${colors.primary}
+format-connected-prefix-foreground = ''${colors.primary}
 
 format-disconnected = <label-disconnected>
 format-disconnected-prefix = "↓↑"
 
-label-connected = %netspeed:9%
-label-disconnected = -
+; XX.X XB/s
+; ^^^^^^^^^ = 9 characters
+label-connected = %netspeed:9% (%ifname%)
+label-disconnected = " (%ifname%)"
+
+[module/network-wireless]
+inherit = module/network-base
+interface-type = wireless
 
 [module/network-wired]
-type = internal/network
+inherit = module/network-base
 interface-type = wired
-interval = 5
-accumulate-stats = true
-
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-
-label-connected = ↓↑%netspeed:9%
-label-connected-foreground = #eefafa
-
-label-disconnected = -
-label-disconnected-foreground = #66ffff
 
 [module/date]
 type = internal/date
@@ -203,3 +177,4 @@ screenchange-reload = true
 pseudo-transparency = true
 
 ; vim:ft=dosini
+''
