@@ -19,10 +19,17 @@
 
   settings.dpi = 192;
   nixpkgs.config.allowUnfree = true;
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  # Stops my monitor from disconnecting when I log out / quit Xmonad.
-  hardware.nvidia.nvidiaPersistenced = true;
+  hardware.nvidia = {
+    # https://nixos.org/manual/nixos/stable/release-notes#sec-release-22.11-highlights (`hardware.nvidia`)
+    #
+    # https://developer.nvidia.com/blog/nvidia-releases-open-source-gpu-kernel-modules/
+    open = true;
+
+    # Stops my monitor from disconnecting when I log out / quit Xmonad.
+    nvidiaPersistenced = true;
+  };
 
   services.dbus.packages = [ pkgs.dconf ];
 

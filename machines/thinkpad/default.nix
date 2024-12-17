@@ -24,7 +24,7 @@
   # 1920/(309/22.5) ~= 1080/(173/22.5) ~= 140px/in
   settings.dpi = 144;
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   services.dbus.packages = [ pkgs.dconf ];
 
