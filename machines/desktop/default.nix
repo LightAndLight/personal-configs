@@ -17,6 +17,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  powerManagement.cpuFreqGovernor = "performance";
+
   settings.dpi = 192;
   nixpkgs.config.allowUnfree = true;
   hardware.graphics.enable = true;
