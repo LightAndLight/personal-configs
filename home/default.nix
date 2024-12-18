@@ -2,6 +2,7 @@
   imports = [
     ./alacritty.nix
     ./emacs
+    ./email.nix
     ./firefox
     ./fish.nix
     ./git.nix
