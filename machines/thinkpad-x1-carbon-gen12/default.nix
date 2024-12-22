@@ -34,11 +34,6 @@
 
   services.dbus.packages = [ pkgs.dconf ];
 
-  virtualisation.docker.enable = false;
-
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-
   time.timeZone = "Australia/Brisbane";
 
   i18n.defaultLocale = "en_US.UTF-8";

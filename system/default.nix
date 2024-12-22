@@ -7,6 +7,7 @@
     ./power.nix
     ./settings.nix
     ./sound.nix
+    ./virtualisation.nix
     ./xserver
   ];
 }

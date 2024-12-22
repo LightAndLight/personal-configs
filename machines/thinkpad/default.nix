@@ -28,11 +28,6 @@
 
   services.dbus.packages = [ pkgs.dconf ];
 
-  virtualisation.docker.enable = false;
-
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-
   time.timeZone = "Australia/Brisbane";
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
