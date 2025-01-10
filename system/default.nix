@@ -10,4 +10,6 @@
     ./virtualisation.nix
     ./xserver
   ];
+
+  boot.tmp.cleanOnBoot = true;
 }
