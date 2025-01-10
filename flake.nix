@@ -9,6 +9,8 @@
       flake = false;
     };
 
+    ipso.url = "github:LightAndLight/ipso";
+
     spacemacs = {
       url = "github:syl20bnr/spacemacs?ref=develop";
       flake = false;

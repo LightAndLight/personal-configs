@@ -35,6 +35,9 @@
       deviceScaleFactor = if config.settings.hiDPI then 2.0 else 1.0;
     })
 
+    (pkgs.callPackage ./packages/mdpreview {
+      ipso = inputs.ipso.defaultPackage.${system};
+    })
     (pkgs.callPackage ./packages/scrap.nix {})
     (pkgs.callPackage ./packages/slowly.nix {})
     inputs.xeval.packages.${system}.default

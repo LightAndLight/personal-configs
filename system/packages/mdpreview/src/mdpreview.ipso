@@ -1,0 +1,44 @@
+main : IO ()
+main =
+  comp
+    bind pandoc? <- env.getvar "MDPREVIEW_PANDOC"
+    bind style? <- env.getvar "MDPREVIEW_STYLE"
+
+    bind args <- env.args
+    let file = array.get! 0 args
+
+    bind fileDir <- io.map string.trim <| cmd.read `dirname $file`
+    bind fileName <- io.map string.trim <| cmd.read `basename $file`
+
+    bind out <- io.map string.trim <| cmd.read `mktemp -d`
+
+    let
+      pandoc =
+        case pandoc? of
+          None () -> "pandoc"
+          Some pandoc -> pandoc
+
+    let
+      options =
+        [ "-s"
+        , "-f", "markdown"
+        , "-t", "html"
+        , "-o", "$out/$fileName.html"
+        , "--extract-media", out
+        , "--resource-path", fileDir
+        , "--metadata", "pagetitle=$fileName"
+        , "--css", "style.css"
+        ]
+
+    bind styleOptions <-
+      case style? of
+        None () ->
+          comp
+            eprintln "warning: MDPREVIEW_STYLE not provided, using default"
+            io.pure []
+        Some style ->
+          io.pure ["--css", style]
+
+    cmd.run `$pandoc $..options $..styleOptions $file`
+
+    println "file://$out/$fileName.html"

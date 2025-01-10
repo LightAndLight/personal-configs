@@ -1,0 +1,41 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  max-width: 55rem;
+  margin: auto;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+img {
+  width: 100%;
+}
+
+p {
+  line-height: 1.55;
+}
+
+pre {
+  /* [Gruvbox](https://github.com/morhetz/gruvbox) */
+  background-color: #282828;
+  color: #ebdbb2;
+
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+
+  word-break: break-all;
+}
+
+code {
+  font-size: 1rem;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: grey;
+}
+
