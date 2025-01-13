@@ -26,8 +26,8 @@
   settings.hiDPI = false;
 
   # xrandr -q
-  # 1920px x 1080px, 309mm x 173mm
-  # 1920/(309/22.5) ~= 1080/(173/22.5) ~= 140px/in
+  # 1920px x 1200px, 301mm x 188mm
+  # 1920/(301/22.5) ~= 1200/(188/22.5) ~= 144px/in
   settings.dpi = 144;
 
   hardware.graphics.enable = true;
