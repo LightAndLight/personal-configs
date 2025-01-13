@@ -15,9 +15,6 @@
     # Supports powerline by default.
     hack-font
 
-    aileron
-    nacelle
-    inter
     source-sans
     source-serif
   ];
