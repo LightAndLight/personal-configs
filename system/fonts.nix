@@ -14,5 +14,17 @@
 
     # Supports powerline by default.
     hack-font
+
+    aileron
+    nacelle
+    inter
+    source-sans
+    source-serif
   ];
+
+  fonts.fontconfig.defaultFonts = {
+    serif = [ "Source Serif 4" ];
+    sansSerif = [ "Source Sans 3" ];
+    monospace = [ "Hack" ];
+  };
 }
