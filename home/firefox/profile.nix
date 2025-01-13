@@ -17,5 +17,9 @@
   };
   userChrome = ''
     #TabsToolbar { visibility: collapse; }
+
+    * {
+      font-size: 13pt;
+    }
   '';
 }
