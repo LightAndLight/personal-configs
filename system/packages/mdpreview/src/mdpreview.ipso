@@ -28,7 +28,6 @@ main =
         , "--extract-media", out
         , "--resource-path", fileDir
         , "--metadata", "pagetitle=$fileName"
-        , "--css", "style.css"
         ]
 
     bind styleOptions <-
