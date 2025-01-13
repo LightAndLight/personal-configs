@@ -1,6 +1,9 @@
 {
   programs.thunderbird = {
     settings = {
+      # Enable userChrome
+      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
       "calendar.week.start" = 0; # Sunday
       # https://support.mozilla.org/en-US/kb/customize-date-time-formats-thunderbird#w_create-date-and-time-format-override-preferences-using-thunderbirds-config-editor
       "intl.date_time.pattern_override.date_short" = "yyyy-MM-dd";
@@ -12,5 +15,11 @@
       "mail.shell.checkDefaultClient" = false;
       "mailnews.start_page.enabled" = false;
     };
+
+    profiles.default.userChrome = ''
+      :root {
+        font-size: 16px !important;
+      }
+    '';
   };
 }

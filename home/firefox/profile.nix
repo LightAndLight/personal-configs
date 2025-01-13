@@ -16,10 +16,18 @@
     "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
   };
   userChrome = ''
+    :root {
+      font-size: 16px !important;
+    }
+
+    menu, menuitem, toolbarbutton, toolbaritem {
+      font-size: 16px;
+    }
+
     #TabsToolbar { visibility: collapse; }
 
-    * {
-      font-size: 13pt;
+    #sidebar-box {
+      min-width: 5rem !important;
     }
   '';
 }
