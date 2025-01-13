@@ -24,6 +24,7 @@ main =
         , "-f", "markdown"
         , "-t", "html"
         , "-o", "$out/$fileName.html"
+        , "--no-highlight" # disable highlighting until I'm willing to fix the CSS
         , "--extract-media", out
         , "--resource-path", fileDir
         , "--metadata", "pagetitle=$fileName"
