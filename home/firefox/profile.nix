@@ -15,6 +15,7 @@
     "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
     "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
   };
+
   userChrome = ''
     :root {
       font-size: 16px !important;
@@ -28,6 +29,14 @@
 
     #sidebar-box {
       min-width: 5rem !important;
+    }
+  '';
+
+  userContent = ''
+    @-moz-document url-prefix("") {
+      button, input[type="button"], input[type="submit"], input[type="reset"] {
+        font-size: 16px;
+      }
     }
   '';
 }
