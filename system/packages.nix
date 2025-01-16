@@ -15,6 +15,9 @@
     # System status
     htop
 
+    # Password management
+    keepassxc
+
     # Misc. tools
     man-pages
     tree
