@@ -20,6 +20,7 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   settings.dpi = 192;
+  settings.hiDPI = true;
   nixpkgs.config.allowUnfree = true;
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
