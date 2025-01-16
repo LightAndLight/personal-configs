@@ -1,11 +1,11 @@
-{
+{ osConfig, ... }: {
   programs.alacritty = {
     enable = true;
     settings = {
       colors.draw_bold_text_with_bright_colors = true;
 
       font = {
-        size = 12.0;
+        size = osConfig.fontSize;
         normal.family = "Hack";
       };
 

@@ -1,4 +1,4 @@
-{ settings, inputs, config, pkgs, ... }:
+{ settings, inputs, config, osConfig, pkgs, ... }:
 {
   home.pointerCursor = {
     x11.enable = false;
@@ -9,8 +9,8 @@
 
   xresources = {
     properties = {
-      "xterm*faceName" = "Hack:size=12:antialias=true";
-      "URxvt.font" = "xft:Hack:size=12:antialias=true";
+      "xterm*faceName" = "Hack:size=${builtins.toString osConfig.fontSize}:antialias=true";
+      "URxvt.font" = "xft:Hack:size=${builtins.toString osConfig.fontSize}:antialias=true";
       "URxvt.scrollBar" = "false";
       "Xft.dpi" = settings.dpi;
       "Xft.antialias" = "1";

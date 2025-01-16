@@ -1,4 +1,4 @@
-{ dpi }:
+{ dpi, fontSize }:
 ''
 ;==========================================================
 ;
@@ -50,7 +50,7 @@ module-margin = 1
 separator = |
 separator-foreground = ''${colors.disabled}
 
-font-0 = Hack:size=12;2
+font-0 = Hack:size=${builtins.toString fontSize};2
 
 cursor-click = pointer
 cursor-scroll = ns-resize

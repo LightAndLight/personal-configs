@@ -17,14 +17,6 @@
   };
 
   userChrome = ''
-    :root {
-      font-size: 16px !important;
-    }
-
-    menu, menuitem, toolbarbutton, toolbaritem {
-      font-size: 16px;
-    }
-
     #TabsToolbar { visibility: collapse; }
 
     #sidebar-box {
