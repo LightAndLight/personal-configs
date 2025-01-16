@@ -1,8 +1,16 @@
 { inputs, config, pkgs, ... }:
 {
   fonts.packages = with pkgs; [
-    source-code-pro
+    caladea # Cambria replacement
+    carlito # Calibri replacement
     dejavu_fonts
+    gelasio # Georgia replacement
+    hack-font # Supports powerline by default
+    libertine
+    source-sans
+    source-han-sans
+    source-serif
+
     (pkgs.stdenv.mkDerivation {
       name = "powerline-fonts";
       src = inputs.powerline-fonts-src;
@@ -11,17 +19,26 @@
         cp DejaVuSansMono/*.ttf "$out/share/fonts/truetype/"
       '';
     })
-
-    # Supports powerline by default.
-    hack-font
-
-    source-sans
-    source-serif
   ];
 
-  fonts.fontconfig.defaultFonts = {
-    serif = [ "Source Serif 4" ];
-    sansSerif = [ "Source Sans 3" ];
-    monospace = [ "Hack" ];
+  fonts.fontconfig = {
+    localConf = ''
+      <?xml version="1.0"?>
+      <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+      <fontconfig>
+        <alias binding="same">
+          <family>Linux Libertine</family>
+          <accept>
+            <family>Linux Libertine O</family>
+          </accept>
+        </alias>
+      </fontconfig>
+    '';
+
+    defaultFonts = {
+      serif = [ "Source Serif 4" ];
+      sansSerif = [ "Source Sans 3" ];
+      monospace = [ "Hack" ];
+    };
   };
 }
