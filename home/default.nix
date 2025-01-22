@@ -7,6 +7,7 @@
     ./fish.nix
     ./git.nix
     ./helix.nix
+    ./keepassxc.nix
     ./polybar
     ./ssh.nix
     ./xresources.nix
