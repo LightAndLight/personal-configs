@@ -7,6 +7,7 @@
     ./packages.nix
     ./power.nix
     ./settings.nix
+    ./ssh.nix
     ./sound.nix
     ./sync.nix
     ./virtualisation.nix
