@@ -1,3 +1,4 @@
+{ config, ...}:
 {
   services.syncthing.enable = true;
 
@@ -19,4 +20,16 @@
   systemd.tmpfiles.rules = [
     "A /var/lib/syncthing/sync - - - - u:syncthing:rwX,d:u:syncthing:rwX,g:syncthing:rwX,d:g:syncthing:rwX"
   ];
+
+  services.nginx = {
+    enable = true;
+    virtualHosts."sync.local" = {
+      listen = [ { addr = "sync.local"; port = 80; } ];
+      locations."/".proxyPass = "http://${config.services.syncthing.guiAddress}";
+    };
+  };
+
+  networking.hosts = {
+    "127.0.0.1" = [ "sync.local" ];
+  };
 }
