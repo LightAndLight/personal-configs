@@ -18,7 +18,7 @@
   # I work around this by having all my accounts in the `syncthing` group, and granting
   # explicit access to `syncthing` group members.
   systemd.tmpfiles.rules = [
-    "A /var/lib/syncthing/sync - - - - u:syncthing:rwX,d:u:syncthing:rwX,g:syncthing:rwX,d:g:syncthing:rwX"
+    "A /var/lib/syncthing - - - - u:syncthing:rwX,d:u:syncthing:rwX,g:syncthing:rwX,d:g:syncthing:rwX"
   ];
 
   services.nginx = {
