@@ -3,7 +3,7 @@
     isNormalUser = true;
     shell = pkgs.fish;
     ignoreShellProgramCheck = true; # provided by home-manager
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "syncthing" ];
   };
 
   home-manager.users.work = { projectRoot, ... }: {

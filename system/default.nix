@@ -8,6 +8,7 @@
     ./power.nix
     ./settings.nix
     ./sound.nix
+    ./sync.nix
     ./virtualisation.nix
     ./xserver
   ];
