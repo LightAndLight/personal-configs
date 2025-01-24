@@ -4,6 +4,10 @@
     platformTheme = "qt5ct";
   };
 
+  environment.variables = {
+    QT_AUTO_SCREEN_SCALE_FACTOR = "0";
+  };
+
   environment.etc."xdg/gtk-2.0/gtkrc".text = ''
     gtk-font-name="Sans ${builtins.toString config.fontSize}"
   '';
