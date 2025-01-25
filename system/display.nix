@@ -5,7 +5,12 @@
   };
 
   environment.variables = {
-    QT_AUTO_SCREEN_SCALE_FACTOR = "0";
+    # When a screen's DPI is an integer multiple of 96, the effect of this isn't noticeable.
+    #
+    # My laptop has a DPI of 144, which is `1.5*96`.
+    # The default for `QT_SCALE_FACTOR_ROUNDING_POLICY` was causing this to round to 2, which
+    # made QT apps look awkwardly scaled up.
+    QT_SCALE_FACTOR_ROUNDING_POLICY = "PassThrough";
   };
 
   environment.etc."xdg/gtk-2.0/gtkrc".text = ''
