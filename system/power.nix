@@ -3,7 +3,12 @@
   environment.systemPackages = [
     pkgs.powertop  
   ];
-  
+
+  # # Notes
+  #
+  # * `tlp fullcharge` - continue charging until full, regardless of thresholds
+  #
+  # See `man tlp` for more.
   services.tlp = {
     enable = config.settings.isLaptop;
     settings = {
