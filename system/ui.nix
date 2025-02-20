@@ -1,4 +1,14 @@
-{ config, ... }: {
+{ pkgs, config, ... }: {
+  imports = [
+    ./ui/options.nix
+  ];
+
+  ui.cursor = {
+    package = pkgs.vanilla-dmz;
+    themeName = "Vanilla-DMZ";
+    size = builtins.floor (1.5 * config.fontSize * (1.0 / 72) * config.settings.dpi);
+  };
+
   qt = {
     enable = true;
     platformTheme = "qt5ct";

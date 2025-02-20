@@ -1,9 +1,9 @@
-{ pkgs, osConfig, ...}: {
+{ osConfig, ...}: {
   home.pointerCursor = {
     x11.enable = true;
-    name = "Vanilla-DMZ";
-    package = pkgs.vanilla-dmz;
-    size = builtins.floor (1.5 * osConfig.fontSize * (1.0 / 72) * osConfig.settings.dpi);
+    package = osConfig.ui.cursor.package;
+    name = osConfig.ui.cursor.themeName;
+    size = osConfig.ui.cursor.size;
   };
 
   xdg.configFile."gtk-3.0/gtk.css".text = ''
