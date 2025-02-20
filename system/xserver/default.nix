@@ -31,6 +31,11 @@
       greeters.gtk = {
         enable = true;
 
+        cursorTheme = {
+          name = config.ui.cursor.themeName;
+          size = config.ui.cursor.size;
+        };
+
         # <https://github.com/Xubuntu/lightdm-gtk-greeter/blob/master/data/lightdm-gtk-greeter.conf>
         extraConfig = ''
           indicators=~host;~spacer;~clock;~power

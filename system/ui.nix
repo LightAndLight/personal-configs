@@ -37,7 +37,7 @@
     [Settings]
     gtk-font-name=Sans ${builtins.toString config.fontSize}
   '';
-      
+
   # <https://github.com/Xubuntu/lightdm-gtk-greeter/blob/master/data/lightdm-gtk-greeter.conf>
   services.xserver.displayManager.lightdm.greeters.gtk.extraConfig = ''
     font-name=Sans,${builtins.toString config.fontSize}
