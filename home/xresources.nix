@@ -1,12 +1,5 @@
 { settings, inputs, config, osConfig, pkgs, ... }:
 {
-  home.pointerCursor = {
-    x11.enable = false;
-    name = "Vanilla-DMZ";
-    package = pkgs.vanilla-dmz;
-    size = 32;
-  };
-
   xresources = {
     properties = {
       "xterm*faceName" = "Hack:size=${builtins.toString osConfig.fontSize}:antialias=true";
