@@ -1,6 +1,5 @@
 {
   imports = [
-    ./display.nix
     ./fonts.nix
     ./home-manager.nix
     ./networking.nix
@@ -10,6 +9,7 @@
     ./ssh.nix
     ./sound.nix
     ./sync.nix
+    ./ui.nix
     ./virtualisation.nix
     ./xserver
   ];
