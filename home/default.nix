@@ -11,6 +11,7 @@
     ./keepassxc.nix
     ./polybar
     ./ssh.nix
+    ./ui.nix
     ./xresources.nix
     ./xsession
   ];

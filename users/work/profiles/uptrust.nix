@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+args@{ config, pkgs, ... }: {
   programs.git = {
     userEmail = "isaac.elliott@uptrusthq.com";
   };
@@ -18,7 +18,7 @@
   programs.firefox = {
     enable = true;
     profiles.isaac.isDefault = false;
-    profiles.work = (import ../../../home/firefox/profile.nix) // {
+    profiles.work = (import ../../../home/firefox/profile.nix args) // {
       id = 1;
       isDefault = true;
     };

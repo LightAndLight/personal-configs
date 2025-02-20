@@ -1,4 +1,4 @@
-{
+{ osConfig, ...}: {
   settings = {
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
@@ -14,6 +14,8 @@
     "browser.urlbar.suggest.quicksuggest.sponsored" = false;
     "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
     "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+
+    "widget.non-native-theme.scrollbar.size.override" = builtins.floor (1.5 * osConfig.fontSize * (1.0 / 72) * osConfig.settings.dpi);
   };
 
   userChrome = ''
