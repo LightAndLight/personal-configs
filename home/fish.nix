@@ -28,6 +28,8 @@
           echo "($listedCount of $total shown)"
         end
       '';
+
+      use-flake = ''echo "use flake" > .envrc && direnv allow'';
     };
   };
 }
