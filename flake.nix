@@ -34,6 +34,8 @@
     columnize.url = "github:LightAndLight/columnize";
 
     xeval.url = "github:LightAndLight/xeval";
+
+    gen-alias.url = "github:LightAndLight/gen-alias";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {

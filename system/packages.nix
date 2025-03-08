@@ -44,5 +44,8 @@
     (pkgs.callPackage ./packages/scrap.nix {})
     (pkgs.callPackage ./packages/slowly.nix {})
     inputs.xeval.packages.${system}.default
+    (pkgs.callPackage ./packages/gen-alias.nix {
+      gen-alias = inputs.gen-alias.packages.${system}.default;
+    })
   ];
 }
