@@ -204,6 +204,16 @@ in
           git lg @ @{u} -n 20
         '';
 
+        fork = aliasCommand "fork" ''
+          #! /usr/bin/env bash
+          set -eu
+
+          base=$1
+          new=$2
+
+          git checkout -b "$new" "$base" --no-track
+        '';
+
         lg = aliasCommand "lg" ''
           #! /usr/bin/env bash
 
