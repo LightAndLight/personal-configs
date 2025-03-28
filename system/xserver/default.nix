@@ -13,6 +13,7 @@
 
   services.xserver = {
     enable = true;
+    exportConfiguration = true;
 
     dpi = config.settings.dpi;
 

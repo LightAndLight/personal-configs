@@ -11,7 +11,7 @@
       experimental-features = nix-command flakes
     '';
   };
-  
+
   networking.hostName = "isaac-nixos-desktop";
 
   boot.loader.systemd-boot.enable = true;
@@ -22,8 +22,8 @@
   settings.dpi = 192;
   settings.hiDPI = true;
   nixpkgs.config.allowUnfree = true;
+
   hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     # https://nixos.org/manual/nixos/stable/release-notes#sec-release-22.11-highlights (`hardware.nvidia`)
     #
@@ -32,6 +32,23 @@
 
     # Stops my monitor from disconnecting when I log out / quit Xmonad.
     nvidiaPersistenced = true;
+  };
+  services.xserver = {
+    videoDrivers = [ "nvidia" ];
+
+    # Adapted from the output of `nvidia-settings` ("Save to X configuration file" -> "Preview")
+    #
+    # Enables "Force Full Compoosition Pipeline", which reduces screen tearing.
+    # Test for screen tearing by watching a video such as [this one](https://www.youtube.com/watch?v=SD-31Q2IgKU).
+    screenSection = ''
+      Monitor        "Monitor[0]"
+      DefaultDepth    24
+      Option         "Stereo" "0"
+      Option         "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
+      Option         "SLI" "Off"
+      Option         "MultiGPU" "Off"
+      Option         "BaseMosaic" "off"
+    '';
   };
 
   services.dbus.packages = [ pkgs.dconf ];
@@ -51,7 +68,7 @@
   networking.useDHCP = false;
   networking.interfaces.eno2.useDHCP = true;
   networking.interfaces.wlo1.useDHCP = true;
-  
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
