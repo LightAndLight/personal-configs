@@ -52,6 +52,14 @@
         })
       ];
     };
+
+    commonModules = [
+      overlaysModule
+      home-manager.nixosModules.home-manager
+      ./system
+      ./users/isaac
+      ./users/work
+    ];
   in {
     nixosConfigurations.isaac-nixos-desktop =
       let system = "x86_64-linux"; in
@@ -63,13 +71,8 @@
             inputs
           ;
         };
-        modules = [
-          overlaysModule
-          home-manager.nixosModules.home-manager
+        modules = commonModules ++ [
           ./machines/desktop
-          ./system
-          ./users/isaac
-          ./users/work
         ];
       };
 
@@ -83,13 +86,8 @@
             inputs
           ;
         };
-        modules = [
-          overlaysModule
-          home-manager.nixosModules.home-manager
+        modules = commonModules ++ [
           ./machines/thinkpad-x1-carbon-gen12
-          ./system
-          ./users/isaac
-          ./users/work
         ];
       };
 
@@ -103,12 +101,8 @@
             inputs
           ;
         };
-        modules = [
-          overlaysModule
-          home-manager.nixosModules.home-manager
+        modules = commonModules ++ [
           ./machines/thinkpad
-          ./system
-          ./users/isaac
         ];
       };
   };
