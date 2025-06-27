@@ -38,7 +38,21 @@
     gen-alias.url = "github:LightAndLight/gen-alias";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  let
+    overlaysModule =  {
+      nixpkgs.overlays = [
+        (self: super: {
+          keepassxc = super.keepassxc.overrideDerivation (old: {
+            patches = (old.patches or []) ++ [
+              # https://github.com/keepassxreboot/keepassxc/pull/12236
+              ./patches/keepassxc/allow-read-only-native-message-files.patch
+            ];
+          });
+        })
+      ];
+    };
+  in {
     nixosConfigurations.isaac-nixos-desktop =
       let system = "x86_64-linux"; in
       nixpkgs.lib.nixosSystem {
@@ -50,6 +64,7 @@
           ;
         };
         modules = [
+          overlaysModule
           home-manager.nixosModules.home-manager
           ./machines/desktop
           ./system
@@ -69,6 +84,7 @@
           ;
         };
         modules = [
+          overlaysModule
           home-manager.nixosModules.home-manager
           ./machines/thinkpad-x1-carbon-gen12
           ./system
@@ -88,6 +104,7 @@
           ;
         };
         modules = [
+          overlaysModule
           home-manager.nixosModules.home-manager
           ./machines/thinkpad
           ./system

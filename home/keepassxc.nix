@@ -76,7 +76,7 @@ in
   # See: <https://github.com/keepassxreboot/keepassxc-browser/wiki/Troubleshooting-guide>
   home.file.".mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json".text = builtins.toJSON {
     allowed_extensions = [ "keepassxc-browser@keepassxc.org" ];
-    description = "KeePassXC integration with native messaging support (via home-manager)";
+    description = "KeePassXC integration with native messaging support";
     name = "org.keepassxc.keepassxc_browser";
     path = "${pkgs.keepassxc}/bin/keepassxc-proxy";
     type = "stdio";
