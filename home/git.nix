@@ -408,6 +408,38 @@ in
           git reset --soft HEAD~1
           git st
         '';
+
+        # Open the repository's web view.
+        #
+        # Guesses a web URL based on the repo's `origin` remote.
+        web = aliasCommand "web" ''
+          set -euo pipefail
+
+          origin=$(git remote get-url origin)
+          case $origin in
+            http://*)
+              url=$origin
+            ;;
+            https://*)
+              url=$origin
+            ;;
+            git\@*)
+              url="http://"$(
+                # remove `git@` prefix
+                sed "s/git@//" <<<$origin |
+
+                # replace first `:` with `/`
+                sed "s/\([^:]*\):/\1\//" |
+
+                # remove `.git` suffix
+                sed 's/\.git$//'
+              )
+            ;;
+          esac
+
+          echo "Opening $url..."
+          xdg-open $url
+        '';
       };
     };
   };
