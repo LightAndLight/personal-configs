@@ -20,6 +20,12 @@
 
   networking.hostName = "isaac-nixos-thinkpad-x1-carbon-gen12";
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+  services.tlp.settings.DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth";
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   settings.isLaptop = true;
