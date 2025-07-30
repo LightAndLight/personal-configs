@@ -18,6 +18,11 @@
     # Disable search suggestions
     "browser.search.suggest.enabled" = false;
 
+    # Disable "AI" features
+    "browser.ml.enable" = false;
+    "browser.ml.chat.enabled" = false;
+    "extensions.ml.enabled" = false;
+
     "widget.gtk.overlay-scrollbars.enabled" = false; # Disable overlay scrollbars
     "widget.non-native-theme.scrollbar.size.override" = builtins.floor (1.0 * osConfig.fontSize * (1.0 / 72) * osConfig.settings.dpi);
   };
