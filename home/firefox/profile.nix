@@ -12,9 +12,11 @@
     "browser.urlbar.quicksuggest.sponsoredIndex" = -1;
     "browser.urlbar.sponsoredTopSites" = false;
     "browser.urlbar.suggest.quicksuggest.sponsored" = false;
-    "browser.search.suggest.enabled" = false;
     "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
     "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+
+    # Disable search suggestions
+    "browser.search.suggest.enabled" = false;
 
     "widget.gtk.overlay-scrollbars.enabled" = false; # Disable overlay scrollbars
     "widget.non-native-theme.scrollbar.size.override" = builtins.floor (1.0 * osConfig.fontSize * (1.0 / 72) * osConfig.settings.dpi);
