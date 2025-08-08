@@ -31,6 +31,9 @@
 
     "widget.gtk.overlay-scrollbars.enabled" = false; # Disable overlay scrollbars
     "widget.non-native-theme.scrollbar.size.override" = builtins.floor (1.0 * osConfig.fontSize * (1.0 / 72) * osConfig.settings.dpi);
+
+     # I don't need to see recent searches; most of my searches are one-shot
+    "browser.urlbar.suggest.recentsearches" = false;
   };
 
   userChrome = ''
