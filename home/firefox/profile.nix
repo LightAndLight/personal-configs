@@ -18,6 +18,12 @@
     # Disable search suggestions
     "browser.search.suggest.enabled" = false;
 
+    # Disable unhelpful URL bar entries
+    "browser.urlbar.suggest.topsites" = false;
+    "browser.urlbar.suggest.trending" = false;
+    "browser.urlbar.suggest.weather" = false;
+    "browser.urlbar.suggest.yelp" = false;
+
     # Disable "AI" features
     "browser.ml.enable" = false;
     "browser.ml.chat.enabled" = false;
