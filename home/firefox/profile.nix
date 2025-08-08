@@ -29,7 +29,8 @@
     "browser.ml.chat.enabled" = false;
     "extensions.ml.enabled" = false;
 
-    "widget.gtk.overlay-scrollbars.enabled" = false; # Disable overlay scrollbars
+    # Better scrollbars
+    "widget.gtk.overlay-scrollbars.enabled" = false;
     "widget.non-native-theme.scrollbar.size.override" = builtins.floor (1.0 * osConfig.fontSize * (1.0 / 72) * osConfig.settings.dpi);
 
      # I don't need to see recent searches; most of my searches are one-shot
