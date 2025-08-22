@@ -1,10 +1,12 @@
 { inputs, config, pkgs, ... }:
 {
   options = with pkgs.lib; {
-    fontSize = mkOption {
-      type = types.int;
-      default = 12;
-      description = "System font size, in points";
+    fonts = {
+      size = mkOption {
+        type = types.oneOf [types.float types.int];
+        default = 12;
+        description = "System font size, in points";
+      };
     };
   };
 

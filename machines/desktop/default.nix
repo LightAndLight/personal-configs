@@ -19,8 +19,10 @@
 
   powerManagement.cpuFreqGovernor = "performance";
 
-  settings.dpi = 192;
+  settings.dpi = 163;
+  fonts.size = 13;
   settings.hiDPI = true;
+
   nixpkgs.config.allowUnfree = true;
 
   hardware.graphics.enable = true;

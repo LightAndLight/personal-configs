@@ -10,8 +10,8 @@
     scrollbar, scrollbar button, scrollbar slider {
       -GtkScrollbar-has-backward-stepper: true;
       -GtkScrollbar-has-forward-stepper: true;
-      min-width: ${builtins.toString osConfig.fontSize}pt;
-      min-height: ${builtins.toString osConfig.fontSize}pt;
+      min-width: ${builtins.toString osConfig.fonts.size}pt;
+      min-height: ${builtins.toString osConfig.fonts.size}pt;
       border-radius: 0;
     }
   '';

@@ -6,7 +6,7 @@
   ui.cursor = {
     package = pkgs.vanilla-dmz;
     themeName = "Vanilla-DMZ";
-    size = builtins.floor (1.5 * config.fontSize * (1.0 / 72) * config.settings.dpi);
+    size = builtins.floor (1.5 * config.fonts.size * (1.0 / 72) * config.settings.dpi);
   };
 
   qt = {
@@ -24,22 +24,22 @@
   };
 
   environment.etc."xdg/gtk-2.0/gtkrc".text = ''
-    gtk-font-name="Sans ${builtins.toString config.fontSize}"
+    gtk-font-name="Sans ${builtins.toString config.fonts.size}"
   '';
 
   # https://answers.launchpad.net/lightdm-gtk-greeter/+question/232911
   environment.etc."xdg/gtk-3.0/settings.ini".text = ''
     [Settings]
-    gtk-font-name=Sans ${builtins.toString config.fontSize}
+    gtk-font-name=Sans ${builtins.toString config.fonts.size}
   '';
 
   environment.etc."xdg/gtk-4.0/settings.ini".text = ''
     [Settings]
-    gtk-font-name=Sans ${builtins.toString config.fontSize}
+    gtk-font-name=Sans ${builtins.toString config.fonts.size}
   '';
 
   # <https://github.com/Xubuntu/lightdm-gtk-greeter/blob/master/data/lightdm-gtk-greeter.conf>
   services.xserver.displayManager.lightdm.greeters.gtk.extraConfig = ''
-    font-name=Sans,${builtins.toString config.fontSize}
+    font-name=Sans,${builtins.toString config.fonts.size}
   '';
 }

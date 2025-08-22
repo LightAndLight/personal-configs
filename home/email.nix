@@ -17,7 +17,7 @@
       "mail.shell.checkDefaultClient" = false;
       "mailnews.start_page.enabled" = false;
 
-      "widget.non-native-theme.scrollbar.size.override" = builtins.floor (1.5 * osConfig.fontSize * (1.0 / 72) * osConfig.settings.dpi);
+      "widget.non-native-theme.scrollbar.size.override" = builtins.floor (1.5 * osConfig.fonts.size * (1.0 / 72) * osConfig.settings.dpi);
     };
 
     profiles.default.userChrome = ''
