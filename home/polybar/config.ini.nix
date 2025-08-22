@@ -33,7 +33,7 @@ margin-bottom = 10
 
 [bar/base]
 width = 100%
-height = 24pt
+height = ${builtins.toString (fontSize * 2)}pt
 
 dpi = ${builtins.toString dpi}
 
