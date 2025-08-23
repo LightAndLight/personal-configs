@@ -1,3 +1,4 @@
+{ fontSize }: ''
 import Data.Monoid
 import XMonad
 import XMonad.Hooks.DynamicLog
@@ -26,7 +27,7 @@ main =
   docks .
   (`additionalKeys`
     [ ((mod4Mask, xK_Return), spawn "alacritty")
-    , ((mod4Mask, xK_p), spawn "exe=`dmenu_path | dmenu -fn Hack -nb '#282828' -nf '#ebdbb2' -sb '#458588' -sf '#ebdbb2' -i` && exec $exe")
+    , ((mod4Mask, xK_p), spawn "exe=`dmenu_path | dmenu -fn 'Hack:size=${builtins.toString fontSize}' -nb '#282828' -nf '#ebdbb2' -sb '#458588' -sf '#ebdbb2' -i` && exec $exe")
     -- `scrap` is a screen capture script, defined elsewhere in this repo.
     , ((mod4Mask, xK_s), spawn "scrap")
     , ((mod4Mask .|. shiftMask, xK_s), spawn "scrot -F \"$HOME\"'/screenshots/%Y-%m-%dT%H:%M:%S_scrot_$wx$h.png' -d 3 --format png")
@@ -44,3 +45,4 @@ main =
   ) .
   ewmh $
   def
+''

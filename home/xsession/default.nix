@@ -1,9 +1,12 @@
-{ pkgs, ... }: {
+{ osConfig, pkgs, ... }: {
   xsession = {
     enable = true;
     windowManager.xmonad = {
       enable = true;
-      config = ./xmonad.hs;
+      config =
+        pkgs.writeText
+          "xmonad.hs"
+          (import ./xmonad.hs.nix { fontSize = osConfig.fonts.size; });
       enableContribAndExtras = true;
     };
     initExtra = with pkgs; ''
