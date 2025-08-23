@@ -6,6 +6,8 @@
       ../../system/substituters.nix
     ];
 
+  home-manager.sharedModules = [ ./home.nix ];
+
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes

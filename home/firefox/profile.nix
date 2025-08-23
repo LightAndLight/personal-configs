@@ -38,6 +38,10 @@
   };
 
   userChrome = ''
+    * {
+      font-size: 17px;
+    }
+
     #TabsToolbar { visibility: collapse; }
 
     #sidebar-box {

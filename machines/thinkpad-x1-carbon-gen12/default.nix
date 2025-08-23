@@ -6,6 +6,8 @@
       ../../system/substituters.nix
     ];
 
+  home-manager.sharedModules = [ ./home.nix ];
+
   # Default for 24.11 is 6.6
   # `picom` was broken, and the 'net suggested that later kernel versions
   # might have better support for the Core Ultra 165U. Upgrading the kernel
