@@ -28,13 +28,11 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  settings.isLaptop = true;
-  settings.hiDPI = false;
 
-  # xrandr -q
-  # 1920px x 1200px, 301mm x 188mm
-  # 1920/(301/22.5) ~= 1200/(188/22.5) ~= 144px/in
-  settings.dpi = 144;
+  settings.isLaptop = true;
+  settings.dpi = 162;
+  fonts.size = 10;
+  settings.hiDPI = true;
 
   hardware.graphics.enable = true;
 
