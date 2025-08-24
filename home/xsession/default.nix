@@ -6,7 +6,7 @@
       config =
         pkgs.writeText
           "xmonad.hs"
-          (import ./xmonad.hs.nix { fontSize = osConfig.fonts.size; });
+          (import ./xmonad.hs.nix { fontSize = osConfig.fonts.size.pt_at_96dpi; });
       enableContribAndExtras = true;
     };
     initExtra = with pkgs; ''

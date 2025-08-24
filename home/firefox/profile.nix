@@ -2,6 +2,10 @@
   settings = {
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
+    # Fonts
+    "font.size.monospace.x-western" = osConfig.fonts.size.px;
+    "font.size.variable.x-western" = osConfig.fonts.size.px;
+
     # Disable built-in ads
     "browser.newtabpage.activity-stream.discoverystream.newSponsoredLabel.enabled" = false;
     "browser.newtabpage.activity-stream.discoverystream.sponsored-collections.enabled" = false;
@@ -31,17 +35,13 @@
 
     # Better scrollbars
     "widget.gtk.overlay-scrollbars.enabled" = false;
-    "widget.non-native-theme.scrollbar.size.override" = builtins.floor (1.0 * osConfig.fonts.size * (1.0 / 72) * osConfig.settings.dpi);
+    "widget.non-native-theme.scrollbar.size.override" = builtins.floor (1.0 * osConfig.fonts.size.px);
 
      # I don't need to see recent searches; most of my searches are one-shot
     "browser.urlbar.suggest.recentsearches" = false;
   };
 
   userChrome = ''
-    * {
-      font-size: 17px;
-    }
-
     #TabsToolbar { visibility: collapse; }
 
     #sidebar-box {
@@ -52,7 +52,7 @@
   userContent = ''
     @-moz-document url-prefix("") {
       button, input[type="button"], input[type="submit"], input[type="reset"] {
-        font-size: 16px;
+        font-size: ${builtins.toString osConfig.fonts.size.px}px;
       }
     }
   '';

@@ -22,7 +22,7 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   settings.dpi = 163;
-  fonts.size = 13;
+  fonts.size.mm = 2.8125;
   settings.hiDPI = true;
 
   nixpkgs.config.allowUnfree = true;

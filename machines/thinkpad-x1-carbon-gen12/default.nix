@@ -33,7 +33,7 @@
 
   settings.isLaptop = true;
   settings.dpi = 162;
-  fonts.size = 10;
+  fonts.size.mm = 2.08;
   settings.hiDPI = true;
 
   hardware.graphics.enable = true;

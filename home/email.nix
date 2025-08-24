@@ -4,6 +4,10 @@
       # Enable userChrome
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
+      # Fonts
+      "font.size.monospace.x-western" = osConfig.fonts.size.px;
+      "font.size.variable.x-western" = osConfig.fonts.size.px;
+
       "calendar.week.start" = 0; # Sunday
       "calendar.alarms.playsound" = false;
       "calendar.alarms.showmissed" = false;
@@ -17,13 +21,10 @@
       "mail.shell.checkDefaultClient" = false;
       "mailnews.start_page.enabled" = false;
 
-      "widget.non-native-theme.scrollbar.size.override" = builtins.floor (1.5 * osConfig.fonts.size * (1.0 / 72) * osConfig.settings.dpi);
+      "widget.non-native-theme.scrollbar.size.override" = builtins.floor (1.5 * osConfig.fonts.size.px);
     };
 
     profiles.default.userChrome = ''
-      :root {
-        font-size: 16px !important;
-      }
     '';
   };
 }

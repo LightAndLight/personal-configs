@@ -10,6 +10,6 @@
 
   home.file.".config/polybar/config.ini".text = import ./config.ini.nix {
     dpi = osConfig.settings.dpi;
-    fontSize = osConfig.fonts.size;
+    fontSize = osConfig.fonts.size.pt_at_96dpi;
   };
 }

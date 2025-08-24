@@ -2,8 +2,8 @@
 {
   xresources = {
     properties = {
-      "xterm*faceName" = "Hack:size=${builtins.toString osConfig.fonts.size}:antialias=true";
-      "URxvt.font" = "xft:Hack:size=${builtins.toString osConfig.fonts.size}:antialias=true";
+      "xterm*faceName" = "Hack:size=${builtins.toString osConfig.fonts.size.pt_at_96dpi}:antialias=true";
+      "URxvt.font" = "xft:Hack:size=${builtins.toString osConfig.fonts.size.pt_at_96dpi}:antialias=true";
       "URxvt.scrollBar" = "false";
       "Xft.dpi" = settings.dpi;
       "Xft.antialias" = "1";

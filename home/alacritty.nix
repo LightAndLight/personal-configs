@@ -5,7 +5,7 @@
       colors.draw_bold_text_with_bright_colors = true;
 
       font = {
-        size = osConfig.fonts.size;
+        size = osConfig.fonts.size.pt_at_96dpi;
         normal.family = "Hack";
       };
 
