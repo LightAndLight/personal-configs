@@ -3,8 +3,8 @@
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
     # Fonts
-    "font.size.monospace.x-western" = osConfig.fonts.size.px;
-    "font.size.variable.x-western" = osConfig.fonts.size.px;
+    "font.size.monospace.x-western" = builtins.ceil osConfig.fonts.size.px;
+    "font.size.variable.x-western" = builtins.ceil osConfig.fonts.size.px;
 
     # Disable built-in ads
     "browser.newtabpage.activity-stream.discoverystream.newSponsoredLabel.enabled" = false;
