@@ -5,8 +5,8 @@
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
       # Fonts
-      "font.size.monospace.x-western" = osConfig.fonts.size.px;
-      "font.size.variable.x-western" = osConfig.fonts.size.px;
+      "font.size.monospace.x-western" = builtins.ceil osConfig.fonts.size.px;
+      "font.size.variable.x-western" = builtins.ceil osConfig.fonts.size.px;
 
       "calendar.week.start" = 0; # Sunday
       "calendar.alarms.playsound" = false;
