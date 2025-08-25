@@ -6,7 +6,7 @@
   ui.cursor = {
     package = pkgs.vanilla-dmz;
     themeName = "Vanilla-DMZ";
-    size = builtins.floor (1.5 * config.fonts.size.px);
+    size = builtins.floor (3 * config.fonts.size.px);
   };
 
   qt = {
