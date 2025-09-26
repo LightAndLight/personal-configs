@@ -582,7 +582,8 @@ before packages are loaded."
   (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
   (add-hook 'haskell-mode-hook #'lsp)
   (setq lsp-haskell-process-path-hie "haskell-language-server")
-  (setq lsp-haskell-process-path-args nil))
+  (setq lsp-haskell-process-path-args nil)
+  (spacemacs/set-leader-keys "gfs" 'magit-file-stage))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
