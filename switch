@@ -5,4 +5,5 @@
 # caches that I don't want to publicly announce.
 sudo nixos-rebuild switch \
   --flake path:. \
-  --option substituters https://cache.nixos.org
+  --option substituters https://cache.nixos.org \
+  $@
