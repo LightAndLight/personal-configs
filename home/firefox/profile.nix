@@ -6,6 +6,7 @@
     "font.size.monospace.x-western" = builtins.ceil osConfig.fonts.size.px;
     "font.size.variable.x-western" = builtins.ceil osConfig.fonts.size.px;
 
+
     # Disable built-in ads
     "browser.newtabpage.activity-stream.discoverystream.newSponsoredLabel.enabled" = false;
     "browser.newtabpage.activity-stream.discoverystream.sponsored-collections.enabled" = false;
@@ -18,6 +19,10 @@
     "browser.urlbar.suggest.quicksuggest.sponsored" = false;
     "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
     "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+
+    # This defaulted to Google
+    "browser.newtabpage.pinned" = "[]";
+
 
     # Disable search suggestions
     "browser.search.suggest.enabled" = false;
@@ -33,6 +38,7 @@
     "browser.ml.chat.enabled" = false;
     "browser.ml.chat.menu" = false;
     "browser.ml.chat.page" = false;
+    "browser.ml.linkPreview.enabled" = false;
     "extensions.ml.enabled" = false;
 
     # Better scrollbars
@@ -41,6 +47,10 @@
 
      # I don't need to see recent searches; most of my searches are one-shot
     "browser.urlbar.suggest.recentsearches" = false;
+
+    # Try to keep Kagi as the default URL bar search
+    "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "kagi";
+    "browser.newtabpage.activity-stream.trendingSearch.defaultSearchEngine" = "kagi";
   };
 
   userChrome = ''
