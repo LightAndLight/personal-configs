@@ -31,6 +31,8 @@
     # Disable "AI" features
     "browser.ml.enable" = false;
     "browser.ml.chat.enabled" = false;
+    "browser.ml.chat.menu" = false;
+    "browser.ml.chat.page" = false;
     "extensions.ml.enabled" = false;
 
     # Better scrollbars
