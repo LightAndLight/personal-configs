@@ -1,12 +1,16 @@
 { ... }: {
+  imports = [
+    ./helix/theme.nix
+  ];
+
   home.sessionVariables = {
     EDITOR = "hx";
   };
 
   programs.helix = {
     enable = true;
-    settings.theme = "gruvbox";
     settings.editor = {
+      auto-pairs = false;
       soft-wrap = {
         enable = true;
         max-wrap = 0;
