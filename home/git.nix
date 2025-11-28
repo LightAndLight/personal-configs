@@ -297,23 +297,26 @@ in
           #! /usr/bin/env bash
           set -euo pipefail
 
-          if [ $# -eq 0 ]
-          then
-            DEFAULT_LIMIT=20
+          limit=20
 
-            base=$(git log \
-              --color \
-              --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr)%C(bold blue)%d%Creset' \
-              --abbrev-commit \
-              -n "$DEFAULT_LIMIT" \
-              | ${pkgs.fzf}/bin/fzf --ansi --layout=reverse-list --height=~100% --prompt="Base commit: " \
-              | ${pkgs.coreutils}/bin/cut -d " " -f 1 -
-            )
+          while getopts "n:" opt; do
+            case "$opt" in
+              n)
+                limit="$OPTARG"
+                ;;
+            esac
+          done
 
-            git rebase --autostash -i "$base"
-          else
-            git rebase --autostash -i "$@"
-          fi
+          base=$(git log \
+            --color \
+            --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr)%C(bold blue)%d%Creset' \
+            --abbrev-commit \
+            -n "$limit" \
+            | ${pkgs.fzf}/bin/fzf --ansi --layout=reverse-list --height=~100% --prompt="Base commit: " \
+            | ${pkgs.coreutils}/bin/cut -d " " -f 1 -
+          )
+
+          git rebase --autostash -i "$base"
 
           echo ""
           git l
