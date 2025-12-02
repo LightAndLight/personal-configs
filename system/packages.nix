@@ -47,5 +47,6 @@
     (pkgs.callPackage ./packages/gen-alias.nix {
       gen-alias = inputs.gen-alias.packages.${system}.default;
     })
+    (pkgs.callPackage ./packages/mdlink {})
   ];
 }
