@@ -35,20 +35,21 @@ in
           #! /usr/bin/env bash
           set -euo pipefail
 
-          if [ $# -eq 0 ]
-          then
-            basePrefix=$(
-              git -c color.ui=always l | \
-              ${pkgs.fzf}/bin/fzf --ansi --layout=reverse-list --height=~100% | \
-              cut -d " " -f 1
-            )
-          elif [ $# -eq 1 ]
-          then
-            basePrefix="$1"
-          else
-            echo "error: expected 0 or 1 argument"
-            exit 1
-          fi
+          limit=20
+
+          while getopts "n:" opt; do
+            case "$opt" in
+              n)
+                limit="$OPTARG"
+                ;;
+            esac
+          done
+
+          basePrefix=$(
+            git -c color.ui=always l -n "$limit" | \
+            ${pkgs.fzf}/bin/fzf --ansi --layout=reverse-list --height=~100% | \
+            cut -d " " -f 1
+          )
 
           commits=$(git rev-list --all | ${pkgs.ripgrep}/bin/rg "^$basePrefix")
           if [ "$(wc -l <<<"$commits")" == 1 ]
