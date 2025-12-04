@@ -6,6 +6,9 @@
     "font.size.monospace.x-western" = builtins.ceil osConfig.fonts.size.px;
     "font.size.variable.x-western" = builtins.ceil osConfig.fonts.size.px;
 
+    # Disable "Ask to save passwords"
+    "signon.rememberSignons" = false;
+
 
     # Disable built-in ads
     "browser.newtabpage.activity-stream.discoverystream.newSponsoredLabel.enabled" = false;
