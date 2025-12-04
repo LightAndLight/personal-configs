@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager?ref=release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -9,7 +10,10 @@
       flake = false;
     };
 
-    ipso.url = "github:LightAndLight/ipso";
+    ipso = {
+      url = "github:LightAndLight/ipso";
+      inputs.flake-utils.follows = "flake-utils";
+    };
 
     spacemacs = {
       url = "github:syl20bnr/spacemacs?ref=develop";
@@ -31,14 +35,23 @@
       flake = false;
     };
 
-    columnize.url = "github:LightAndLight/columnize";
+    columnize = {
+      url = "github:LightAndLight/columnize";
+      inputs.flake-utils.follows = "flake-utils";
+    };
 
-    xeval.url = "github:LightAndLight/xeval";
+    xeval = {
+      url = "github:LightAndLight/xeval";
+      inputs.flake-utils.follows = "flake-utils";
+    };
 
-    gen-alias.url = "github:LightAndLight/gen-alias";
+    gen-alias = {
+      url = "github:LightAndLight/gen-alias";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, ... }:
   let
     overlaysModule =  {
       nixpkgs.overlays = [
@@ -60,7 +73,18 @@
       ./users/isaac
       ./users/work
     ];
-  in {
+  in
+  flake-utils.lib.eachDefaultSystem (system:
+    let pkgs = import nixpkgs { inherit system; }; in
+    {
+      devShells.default = pkgs.mkShell {
+        shellHook = ''
+          export PROJECT_ROOT=$(git rev-parse --show-toplevel)
+        '';
+      };
+    }
+  ) //
+  {
     nixosConfigurations.isaac-nixos-desktop =
       let system = "x86_64-linux"; in
       nixpkgs.lib.nixosSystem {
