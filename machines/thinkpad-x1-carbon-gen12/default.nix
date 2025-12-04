@@ -3,6 +3,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./bluetooth.nix
       ../../system/substituters.nix
     ];
 
@@ -21,12 +22,12 @@
   };
 
   networking.hostName = "isaac-nixos-thinkpad-x1-carbon-gen12";
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
+  services.openvpn.servers = {
+    "nordvpn-us" = {
+      config = "config ${../../system/us9866.nordvpn.com.tcp.ovpn}";
+      autoStart = false;
+    };
   };
-  services.tlp.settings.DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
