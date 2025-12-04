@@ -1,5 +1,9 @@
 # `emacs` config
 
+## Updating the `spacemacs` repo
+
+1. `[PROJECT_ROOT]$ nix flake update spacemacs && ./switch`
+
 ## Updating `.spacemacs`
 
 1. Replace the Nix-managed `.spacemacs` with a local, mutable version
