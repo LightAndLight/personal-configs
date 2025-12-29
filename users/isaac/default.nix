@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ inputs, config, pkgs, ... }: {
   users.users.isaac = {
     isNormalUser = true;
     shell = pkgs.fish;
@@ -9,6 +9,8 @@
   home-manager.users.isaac = { projectRoot, ... }: {
     imports = [
       (projectRoot + /home)
+      inputs.asker.nixosModules.home-manager
+      inputs.tsk.nixosModules.default
     ];
 
     programs.git = {
@@ -21,5 +23,11 @@
       enable = true;
       profiles.default.isDefault = true;
     };
+
+    programs.tsk = {
+      enable = true;
+    };
+
+    services.asker-prompt.enable = true;
   };
 }

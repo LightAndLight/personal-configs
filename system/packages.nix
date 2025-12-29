@@ -38,6 +38,7 @@
       deviceScaleFactor = if config.settings.hiDPI then 2.0 else 1.0;
     })
 
+    # Tools
     (pkgs.callPackage ./packages/mdpreview {
       ipso = inputs.ipso.defaultPackage.${system};
     })
@@ -48,5 +49,6 @@
       gen-alias = inputs.gen-alias.packages.${system}.default;
     })
     (pkgs.callPackage ./packages/mdlink {})
+    (pkgs.haskell.lib.justStaticExecutables (pkgs.haskellPackages.callPackage "${inputs.rand}/rand.nix" {}))
   ];
 }

@@ -5,6 +5,7 @@
     ./networking.nix
     ./packages.nix
     ./power.nix
+    ./secrets.nix
     ./settings.nix
     ./ssh.nix
     ./sound.nix

@@ -4,6 +4,10 @@
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager?ref=release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     gruvbox-contrib = {
       url = "github:morhetz/gruvbox-contrib?rev=edb3ee5f626cdfb250d5ab42c1f5ccb9f8050514";
@@ -49,11 +53,43 @@
       url = "github:LightAndLight/gen-alias";
       inputs.flake-utils.follows = "flake-utils";
     };
+
+    rand = {
+      url = "github:LightAndLight/rand";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    asker = {
+      url = "github:LightAndLight/asker";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    syncthing-merge = {
+      url = "github:LightAndLight/syncthing-merge";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    tsk = {
+      url = "github:LightAndLight/tsk";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, ... }:
   let
-    overlaysModule =  {
+    overlaysModule = {
       nixpkgs.overlays = [
         (self: super: {
           keepassxc = super.keepassxc.overrideDerivation (old: {
@@ -63,6 +99,9 @@
             ];
           });
         })
+        inputs.asker.overlays.default
+        inputs.syncthing-merge.overlays.default
+        inputs.tsk.overlays.default
       ];
     };
 
@@ -81,6 +120,11 @@
         shellHook = ''
           export PROJECT_ROOT=$(git rev-parse --show-toplevel)
         '';
+
+        nativeBuildInputs = with pkgs; [
+          age
+          sops
+        ];
       };
     }
   ) //
