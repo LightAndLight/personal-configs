@@ -12,11 +12,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1767045962,
+        "lastModified": 1767046835,
         "narHash": "sha256-kqHJ1ioTDfBCyEDW/eU0NbnOYVpn+xH/nxYhI9nhuRs=",
         "owner": "LightAndLight",
         "repo": "asker",
-        "rev": "d2e0ff312f266e657dbfaf1d812e37beb31de315",
+        "rev": "def498b03e8541a1727c69d660cff1c381c63a8c",
         "type": "github"
       },
       "original": {
