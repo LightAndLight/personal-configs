@@ -14,9 +14,10 @@ in
     overrideDevices = false;
     overrideFolders = false;
     settings.folders = {
-      "~/sync" = {
+      sync = {
         id = "pkf7r-yzgxs";
         type = "sendreceive";
+        path = "${config.services.syncthing.dataDir}/sync";
       };
     };
   };

@@ -26,6 +26,7 @@
 
     programs.tsk = {
       enable = true;
+      config.database = "${config.services.syncthing.settings.folders.sync.path}/database.tsk";
     };
 
     services.asker-prompt.enable = true;
