@@ -9,7 +9,7 @@
   home-manager.users.work = { projectRoot, ... }: {
     imports = [
       (projectRoot + /home)
-      ./profiles/uptrust.nix
+      ./profiles/inactive.nix
     ];
   };
 }
