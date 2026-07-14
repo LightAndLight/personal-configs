@@ -1,6 +1,6 @@
 lines |
 each { |url|
-  let title = (curl err> /dev/null -L $url | pup 'title text{}')
+  let title = (curl err> /dev/null -L $url | pup 'head title text{}')
   $"[($title)]\(($url)\)"
 } |
 to text
