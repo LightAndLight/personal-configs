@@ -15,8 +15,10 @@
 
     programs.git = {
       enable = true;
-      userName = "Isaac Elliott";
-      userEmail = "isaace71295@gmail.com";
+      settings.user = {
+        name = "Isaac Elliott";
+        email = "isaace71295@gmail.com";
+      };
     };
 
     programs.thunderbird = {

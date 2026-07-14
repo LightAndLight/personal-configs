@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     flake-utils.url = "github:numtide/flake-utils";
-    home-manager.url = "github:nix-community/home-manager?ref=release-25.05";
+    home-manager.url = "github:nix-community/home-manager?ref=release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -91,14 +91,6 @@
   let
     overlaysModule = {
       nixpkgs.overlays = [
-        (self: super: {
-          keepassxc = super.keepassxc.overrideDerivation (old: {
-            patches = (old.patches or []) ++ [
-              # https://github.com/keepassxreboot/keepassxc/pull/12236
-              ./patches/keepassxc/allow-read-only-native-message-files.patch
-            ];
-          });
-        })
         inputs.asker.overlays.default
         inputs.syncthing-merge.overlays.default
         inputs.tsk.overlays.default

@@ -12,6 +12,7 @@
     ./sync.nix
     ./ui.nix
     ./virtualisation.nix
+    ./xscreensaver.nix
     ./xserver
   ];
 

@@ -6,8 +6,8 @@ in
   programs.git = {
     enable = true;
     lfs.enable = true;
-    userName = "Isaac Elliott";
-    extraConfig = {
+    settings = {
+      user.name = "Isaac Elliott";
       advice.skippedCherryPicks = false;
       core = {
         editor = "hx";

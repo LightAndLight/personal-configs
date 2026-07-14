@@ -15,8 +15,6 @@
     ./xresources.nix
     ./xsession
   ];
-  
-  services.xscreensaver.enable = true;
 
   programs.direnv = {
     enable = true;
