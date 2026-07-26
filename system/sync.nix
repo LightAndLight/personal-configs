@@ -74,7 +74,7 @@ in
               program = pkgs.writeScript "syncthing-merge-keepassxc" ''
                 #! ${pkgs.bash}/bin/bash
                 set -euo pipefail
-                ${pkgs.asker}/bin/asker keepassxc | ${pkgs.keepassxc}/bin/keepassxc-cli merge --same-credentials "$2" "$1"
+                ASKER_DIR="${config.services.asker.runtimeDir}" ${pkgs.asker}/bin/asker keepassxc | ${pkgs.keepassxc}/bin/keepassxc-cli merge --same-credentials "$2" "$1"
                 mv "$2" "$1"
               '';
             }
